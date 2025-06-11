@@ -1,26 +1,20 @@
 
-/* Main content styling */
 main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* Align at the top */
     padding: 40px 20px;
     background-color: #f0f2f5;
-    /* Light gray background */
     min-height: calc(100vh - 120px);
-    /* Adjust based on header/footer height */
 }
 
 .appointment-section {
     background-color: #ffffff;
-    /* White background for the section */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
     max-width: 700px;
-    /* Max width to control form size */
     text-align: center;
 }
 
@@ -31,7 +25,6 @@ main {
 .appointment-header i {
     font-size: 3.5em;
     color: #004d99;
-    /* Darker blue for icon */
     margin-bottom: 15px;
 }
 
@@ -50,7 +43,6 @@ main {
 
 .appointment-form-container {
     text-align: left;
-    /* Align form content to the left */
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 25px;
