@@ -1,22 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearService</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
+
 <body>
     <header>
-        <div class="logo">Gear Service</div>
+        <div class="logo">
+            Gear Service
+        </div>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="citas.html">Citas</a>
-            <a href="local.html">Locales</a>
+            <a href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
+            <a href="servicios.html"><i class="bi bi-tools"></i> Servicios</a>
+            <a href="citas.html"><i class="bi bi-calendar-check-fill"></i> Citas</a>
+            <a href="local.html"><i class="bi bi-geo-alt-fill"></i> Locales</a>
         </nav>
     </header>
+
     <main>
+
+        <section class="bienvenida">
+            <h1>Bienvenido a Gear Service</h1>
+            <p class="descripcion">
+                Tu taller de confianza para el mantenimiento y reparación de vehículos. Ofrecemos servicios de alta
+                calidad con mecánicos expertos.
+            </p>
+            <div class="botones">
+                <a href="citas.html" class="btn btn-primario">Agendar Cita</a>
+                <a href="servicios.html" class="btn btn-secundario">Ver Servicios</a>
+            </div>
+        </section>
+        <section class="compromisos">
+            <h1>Nuestros Compromisos</h1>
+            <p></p>
+            <div class="contenedor-cartas">
+                <div class="carta">
+                    <div class="icono">🔧</div>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Utilizamos repuestos originales y herramientas de última generación para asegurar la máxima
+                        calidad en cada reparación.</p>
+                </div>
+                <div class="carta">
+                    <div class="icono">🚗</div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Cada cliente es importante. Te ofrecemos un trato cercano y asesoramiento honesto sobre las
+                        necesidades de tu vehículo.</p>
+                </div>
+                <div class="carta">
+                    <div class="icono">🤖</div>
+                    <h3>Tecnología e Innovación</h3>
+                    <p>Aprovecha nuestra herramienta de IA para recomendaciones de servicio y agenda tu cita
+                        fácilmente online.</p>
+                </div>
+            </div>
+        </section>
+
         <h1>¡Bienvenido a GearService!</h1>
         <p class="descripcion">Les ofrecemos una gran variedad de productos y servicios para nuestros clientes</p>
         <div class="tarjetas-servicios">
@@ -38,11 +82,18 @@
         </div>
         <h1>Preferencia a Citas</h1>
         <p class="descripcion">¿Buscas ahorrar tiempo en atender tu vehiculo?</p>
-        <p class="descripcion">¡Agenda una cita con nosotros hoy y te atenderemos de inmediato en nuestros locales autorizados!</p>
+        <p class="descripcion">¡Agenda una cita con nosotros hoy y te atenderemos de inmediato en nuestros locales
+            autorizados!</p>
         <img src="../img/cita hoy.png" alt="Saca tu cita hoy" class="imagen-marco">
     </main>
-    <footer>
-        Made for Grupo 4 - UTP - Berrt  - todos los derechos e izquierdos reservados &copy; 2025
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Gear Service Online. Todos los derechos reservados.</p>
+            <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
+        </div>
     </footer>
+
 </body>
+
 </html>
