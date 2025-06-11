@@ -300,6 +300,7 @@ section.compromisos {
 .carousel-wrapper {
     width: 80%;
     max-width: 400px;
+    max-height: 1350px;
     margin: 0rem auto;
 }
 
