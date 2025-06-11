@@ -52,10 +52,11 @@ nav a:hover {
 
 main {
     background: #f0f0f0;
-    padding: 1rem 1rem;
+    padding: 0;
     text-align: center;
     flex: 1;
 }
+
 
 main h1 {
     font-family: Garamond, serif;
@@ -295,19 +296,23 @@ section.compromisos {
     color: #333;
 }
 
-/*CARRUSEL*/
+/* CARRUSEL */
 
 .carousel-wrapper {
-    width: 80%;
-    max-width: 400px;
-    max-height: 1350px;
-    margin: 0rem auto;
+    width: 1521px;
+    height: 700px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
 }
-
-
-.carousel-inner .carousel-item img {
-}    
 
 .carousel-inner {
     width: 100%;
+    height: 100%;
+}
+
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
 }
