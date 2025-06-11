@@ -1,11 +1,14 @@
 .local-section {
     padding: 2rem;
     text-align: center;
+
 }
 
 .local-section h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+        color: #004d99;
+
 }
 
 .local-section p {
