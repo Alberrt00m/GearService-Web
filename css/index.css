@@ -5,7 +5,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 header {
     background: #222;
     color: #fff;
