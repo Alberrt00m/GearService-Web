@@ -1,1 +1,83 @@
+.icono-servicio {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #00398f; /* o el color que estés usando */
+}
 
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+
+.card-servicio {
+    width: 400px;
+    height: 350px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.card-servicio:hover {
+    transform: scale(1.03);
+}
+
+.card-servicio img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.contenido-servicio {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-servicio h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.card-servicio p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.card-servicio .precio {
+    font-weight: bold;
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+.btn-agendar {
+    background-color: #00398f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s;
+    border-radius: 5px 5px 5px 5px;
+    width: 100%;
+}
+
+.btn-agendar:hover {
+    background-color: #00398f;
+}
