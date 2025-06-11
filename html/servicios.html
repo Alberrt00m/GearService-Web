@@ -1,26 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GearService</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios - GearService</title>
+    <link rel="stylesheet" href="../css/servicios.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
+
 <body>
     <header>
         <div class="logo">Gear Service</div>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="citas.html">Citas</a>
-            <a href="local.html">Locales</a>
+            <a href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
+            <a href="servicios.html" class="activo"><i class="bi bi-tools"></i> Servicios</a>
+            <a href="citas.html"><i class="bi bi-calendar-check-fill"></i> Citas</a>
+            <a href="local.html"><i class="bi bi-geo-alt-fill"></i> Locales</a>
         </nav>
     </header>
+
     <main>
-        <h1>aqui van servicios</h1>
+        <section class="seccion-servicios">
+            <h1>
+                <span class="icono-servicio"><i class="bi bi-wrench"></i></span>
+                Servicios Disponibles
+            </h1>
+            <p class="descripcion">
+                Descubre la gama completa de servicios que ofrecemos para mantener tu vehículo en perfectas condiciones.
+            </p>
+
+            <div class="grid-servicios">
+                <!-- Servicio 1  -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Cambio de aceite" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-droplet-half"></i> Cambio de Aceite</h2>
+                        <span class="precio">Precio: $50 - $100</span>
+                        <p>Cambio de aceite y filtro utilizando productos de alta calidad para el óptimo rendimiento de
+                            tu motor.</p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Revisión de frenos" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-sliders"></i> Revisión de Frenos</h2>
+                        <span class="precio">Precio: $70 - $150</span>
+                        <p>Inspección completa del sistema de frenos, incluyendo pastillas, discos y líquido de frenos.
+                        </p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Alineación de ruedas" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-car-front-fill"></i> Alineación y Balanceo</h2>
+                        <span class="precio">Precio: $80 - $120</span>
+                        <p>Ajuste de la alineación de las ruedas y balanceo para una conducción suave y segura.</p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Diagnóstico general" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-wrench-adjustable-circle-fill"></i> Diagnóstico General</h2>
+                        <span class="precio">Precio: $60</span>
+                        <p>Diagnóstico computarizado para identificar cualquier problema en el vehículo.</p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Servicio de aire acondicionado" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-thermometer-sun"></i> Servicio de Aire Acondicionado</h2>
+                        <span class="precio">Precio: $90 - $180</span>
+                        <p>Revisión y recarga del sistema de aire acondicionado para mantenerte fresco.</p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="card-servicio">
+                    <img src="../img/aceite.png" alt="Revisión de batería" />
+                    <div class="contenido-servicio">
+                        <h2><i class="bi bi-battery-full"></i> Revisión de Batería</h2>
+                        <span class="precio">Precio: $30 - $200</span>
+                        <p>Prueba y reemplazo de batería si es necesario, para asegurar el arranque de tu vehículo.</p>
+                        <button class="btn-agendar">Agendar este servicio</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        Made for Grupo 4 - UTP - Berrt  - todos los derechos e izquierdos reservados &copy; 2025
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Gear Service Online. Todos los derechos reservados.</p>
+            <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
+        </div>
     </footer>
 </body>
+
 </html>
