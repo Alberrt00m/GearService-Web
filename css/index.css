@@ -294,3 +294,18 @@ section.compromisos {
     font-size: 1rem;
     color: #333;
 }
+
+/*CARRUSEL*/
+
+.carousel-wrapper {
+    width: 80%;
+    max-width: 400px;
+    margin: 0rem auto;
+}
+
+.carousel-inner .carousel-item img {
+}
+
+.carousel-inner {
+    width: 100%;
+}
