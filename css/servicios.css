@@ -11,14 +11,12 @@
 }
 
 .grid-servicios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    justify-items: center;
-    align-items: stretch;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* Centra horizontalmente */
+    align-items: flex-start;   /* Opcional: alinea arriba las tarjetas */
+    gap: 32px;                 /* Espacio entre tarjetas, ajusta según prefieras */
+    margin-top: 32px;
 }
 
 
@@ -34,6 +32,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.2s ease;
+    text-align: center;
 }
 
 .card-servicio:hover {
