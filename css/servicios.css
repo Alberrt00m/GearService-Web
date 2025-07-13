@@ -81,3 +81,343 @@
 .btn-agendar:hover {
     background-color: #00398f;
 }
+
+/* Importar las mismas variables y fuentes del index.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #00398f;
+    --secondary-color: #ff9800;
+    --accent-color: #667eea;
+    --text-dark: #2c3e50;
+    --text-light: #757575;
+    --background-light: #f8fafc;
+    --white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+    --shadow-heavy: rgba(0, 0, 0, 0.2);
+    --border-radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Sección principal */
+.seccion-servicios {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--background-light) 0%, #e3f2fd 100%);
+    min-height: calc(100vh - 200px);
+    position: relative;
+}
+
+.seccion-servicios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(103, 126, 234, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.seccion-servicios h1 {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.icono-servicio {
+    display: inline-block;
+    font-size: 3rem;
+    margin-right: 1rem;
+    color: var(--secondary-color);
+    text-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+    animation: bounceIn 1s ease-out;
+}
+
+.seccion-servicios .descripcion {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Grid de servicios */
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjetas de servicios mejoradas */
+.card-servicio {
+    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.card-servicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(103, 126, 234, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-servicio:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px var(--shadow-medium);
+}
+
+.card-servicio:nth-child(1) { animation-delay: 0.1s; }
+.card-servicio:nth-child(2) { animation-delay: 0.2s; }
+.card-servicio:nth-child(3) { animation-delay: 0.3s; }
+.card-servicio:nth-child(4) { animation-delay: 0.4s; }
+.card-servicio:nth-child(5) { animation-delay: 0.5s; }
+.card-servicio:nth-child(6) { animation-delay: 0.6s; }
+
+/* Imágenes de servicios */
+.card-servicio img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+}
+
+.card-servicio:hover img {
+    transform: scale(1.05);
+}
+
+/* Contenido de la tarjeta */
+.contenido-servicio {
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-servicio h2 {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.card-servicio h2 i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.card-servicio .precio {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-align: center;
+    border: 2px solid rgba(255, 152, 0, 0.2);
+    margin: 0.5rem 0;
+}
+
+.card-servicio p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Botón mejorado */
+.btn-agendar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 57, 143, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-agendar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-agendar:hover::before {
+    left: 100%;
+}
+
+.btn-agendar:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 57, 143, 0.4);
+}
+
+.btn-agendar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 57, 143, 0.3);
+}
+
+/* Estados especiales para diferentes servicios */
+.card-servicio:nth-child(odd) {
+    background: linear-gradient(135deg, var(--white) 0%, #f0f8ff 100%);
+}
+
+.card-servicio:nth-child(even) {
+    background: linear-gradient(135deg, var(--white) 0%, #f8f0ff 100%);
+}
+
+/* Estilo para el enlace activo en la navegación */
+nav a.activo {
+    background: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+}
+
+nav a.activo i {
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-servicios {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .seccion-servicios {
+        padding: 2rem 1rem;
+    }
+    
+    .seccion-servicios h1 {
+        font-size: 2.2rem;
+    }
+    
+    .icono-servicio {
+        font-size: 2.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .contenido-servicio {
+        padding: 1.5rem;
+    }
+    
+    .card-servicio h2 {
+        font-size: 1.2rem;
+    }
+    
+    .card-servicio img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-servicios {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .card-servicio {
+        margin: 0 1rem;
+    }
+    
+    .seccion-servicios h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contenido-servicio {
+        padding: 1rem;
+    }
+    
+    .btn-agendar {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

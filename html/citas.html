@@ -11,12 +11,18 @@
 </head>
 
 <body>
+
     <header>
         <div class="logo">Gear Service</div>
         <nav>
             <a href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
+
             <a href="servicios.html" class="activo"><i class="bi bi-tools"></i> Servicios</a>
             <a href="citas.html"><i class="bi bi-calendar-check-fill"></i> Citas</a>
+
+            <a href="servicios.html"><i class="bi bi-tools"></i> Servicios</a>
+            <a href="citas.html" class="activo"><i class="bi bi-calendar-check-fill"></i> Citas</a>
+
             <a href="local.html"><i class="bi bi-geo-alt-fill"></i> Locales</a>
         </nav>
     </header>
@@ -67,11 +73,59 @@
         </div>
     </section>
 </main>
+        <section class="appointment-section">
+            <div class="appointment-header">
+                <i class="bi bi-car-front-fill"></i>
+                <h2>Agenda tu Cita</h2>
+                <p>Es rápido y fácil. Selecciona el servicio, la fecha y hora que más te convenga.</p>
+            </div>
+
+            <div class="appointment-form-container">
+                <h3>Reservar una Cita</h3>
+                <p>Completa el formulario para agendar tu servicio. Nos pondremos en contacto contigo a la brevedad.</p>
+
+                <form class="appointment-form">
+                    <div class="form-group">
+                        <label for="fullName"><i class="bi bi-person-fill"></i> Nombre Completo</label>
+                        <input type="text" id="fullName" placeholder="Ej: Juan Pérez" />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vehicleModel"><i class="bi bi-car-fill"></i> Modelo del Vehículo</label>
+                            <input type="text" id="vehicleModel" placeholder="Ej: Toyota Corolla 2020" />
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate"><i class="bi bi-credit-card-2-front-fill"></i> Placa del
+                                Vehículo</label>
+                            <input type="text" id="licensePlate" placeholder="Ej: ABC-123" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="problemDescription"><i class="bi bi-card-text"></i> Descripción del Problema</label>
+                        <textarea id="problemDescription"
+                            placeholder="Describe el problema que presenta tu vehículo..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferredDateTime"><i class="bi bi-calendar"></i> Fecha y Hora Preferida</label>
+                        <input type="datetime-local" id="preferredDateTime" placeholder="aaaa-mm-ddT--:--" />
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <i class="bi bi-envelope-fill"></i> Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
     <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2025 Gear Service Online. Todos los derechos reservados.</p>
             <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
         </div>
     </footer>
+<script src="../js/citas.js"></script>
 </body>
 </html>

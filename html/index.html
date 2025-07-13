@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearService</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap Iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -24,7 +28,33 @@
     </header>
 
     <main>
-
+        <div class="carousel-wrapper"> <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="../img/1banner.png" alt="Primer slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../img/2banner.png" alt="Segundo slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="../img/3banner.png" alt="Tercer slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+</div>
         <section class="bienvenida">
             <h1>Bienvenido a Gear Service</h1>
             <p class="descripcion">
@@ -39,6 +69,8 @@
         <section class="compromisos">
             <h1>Nuestros Compromisos</h1>
             <p></p>
+        <section class="compromisos">
+            <h1>Nuestros Compromisos</h1><br>
             <div class="contenedor-cartas">
                 <div class="carta">
                     <div class="icono">🔧</div>
@@ -62,26 +94,29 @@
         </section>
 
         <h1>¡Bienvenido a GearService!</h1>
+        <br><h1>¡Bienvenido a GearService!</h1>
         <p class="descripcion">Les ofrecemos una gran variedad de productos y servicios para nuestros clientes</p>
         <div class="tarjetas-servicios">
             <div class="tarjeta">
                 <img src="../img/neumaticos.png" alt="Neumáticos" class="tarjeta-img">
-                <h2>Revicion de neumaticos</h2>
-                <p>Revisamos el estado de su neumatico y lo cambiamos si es necesario</p>
+                <h2>Revisión de neumáticos</h2>
+                <p>Revisamos el estado de su neumático y lo cambiamos si es necesario.</p>
             </div>
             <div class="tarjeta">
                 <img src="../img/aceite.png" alt="Aceite" class="tarjeta-img">
                 <h2>Cambio de aceite</h2>
-                <p>Revisamos y cambiamos el aceite de su motor</p>
+                <p>Revisamos y cambiamos el aceite de su motor.</p>
             </div>
             <div class="tarjeta">
-                <img src="../img/bateria.png" alt="bateria" class="tarjeta-img">
-                <h2>Revicion de bateria</h2>
-                <p>Verificamos el estado de la betira de su auto</p>
+                <img src="../img/bateria.png" alt="Batería" class="tarjeta-img">
+                <h2>Revisión de batería</h2>
+                <p>Verificamos el estado de la batería de su auto.</p>
             </div>
         </div>
         <h1>Preferencia a Citas</h1>
         <p class="descripcion">¿Buscas ahorrar tiempo en atender tu vehiculo?</p>
+        <br><h1>Preferencia a Citas</h1>
+        <p class="descripcion">¿Buscas ahorrar tiempo en atender tu vehículo?</p>
         <p class="descripcion">¡Agenda una cita con nosotros hoy y te atenderemos de inmediato en nuestros locales
             autorizados!</p>
         <img src="../img/cita hoy.png" alt="Saca tu cita hoy" class="imagen-marco">
@@ -93,7 +128,9 @@
             <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
         </div>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
