@@ -17,10 +17,22 @@
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --shadow-heavy: rgba(0, 0, 0, 0.2);
-    --border-radius: 16px;
+    --border-radius: 4px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    
+    /* Paleta de colores grises */
+    --gray-900: #1a1a1a;
+    --gray-800: #2d2d2d;
+    --gray-700: #404040;
+    --gray-600: #555555;
+    --gray-500: #6b6b6b;
+    --gray-400: #808080;
+    --gray-300: #a6a6a6;
+    --gray-200: #cccccc;
+    --gray-100: #e6e6e6;
+    --gray-50: #f9fafb;
 }
 
 /* Reset básico */
@@ -146,15 +158,16 @@ body {
 /* Tarjetas de servicio */
 .card-servicio {
     background: var(--gradient-card);
-    border-radius: var(--border-radius);
+    border-radius: 2px;
     overflow: hidden;
-    box-shadow: 0 8px 25px var(--shadow-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
     transition: var(--transition);
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
 .card-servicio::before {
@@ -175,7 +188,7 @@ body {
 
 .card-servicio:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--shadow-medium);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Imágenes de las tarjetas */
@@ -282,6 +295,82 @@ body {
 
 .btn-agendar i {
     font-size: 1.1em;
+}
+
+/* Estilos con colores grises para servicios */
+
+/* Precios y información secundaria */
+.price-secondary,
+.service-duration,
+.service-details {
+    color: var(--gray-600);
+}
+
+/* Iconos de servicios */
+.service-icon-bg {
+    background-color: var(--gray-100);
+}
+
+.service-icon-secondary {
+    color: var(--gray-500);
+}
+
+/* Estados de servicios */
+.service-available {
+    border-left: 4px solid var(--gray-300);
+}
+
+.service-popular::before {
+    background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+}
+
+/* Tablas de precios */
+.pricing-table {
+    border: 1px solid var(--gray-200);
+}
+
+.pricing-header {
+    background-color: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.pricing-feature {
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+}
+
+.pricing-feature.disabled {
+    color: var(--gray-400);
+}
+
+/* Filtros y categorías */
+.filter-button {
+    background-color: var(--gray-100);
+    color: var(--gray-700);
+    border: 1px solid var(--gray-300);
+}
+
+.filter-button.active {
+    background-color: var(--gray-700);
+    color: var(--white);
+}
+
+.filter-button:hover {
+    background-color: var(--gray-200);
+    border-color: var(--gray-400);
+}
+
+/* Notas y advertencias */
+.service-note {
+    background-color: var(--gray-50);
+    border-left: 3px solid var(--gray-300);
+    color: var(--gray-600);
+}
+
+.service-warning {
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
 }
 
 /* ===============================================

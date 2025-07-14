@@ -4,9 +4,26 @@
 
 /* Variables CSS para el navbar */
 :root {
-    --primary-color: #00398f;
-    --secondary-color: #ff9800;
-    --accent-color: #667eea;
+    --primary-color: #0D47A1;
+    --primary-dark: #1565C0;
+    --primary-light: #1976D2;
+    --primary-lighter: #1E88E5;
+    --primary-lightest: #2196F3;
+    --secondary-color: #E65100;
+    --secondary-dark: #EF6C00;
+    --secondary-light: #F57C00;
+    --secondary-lighter: #FB8C00;
+    --secondary-lightest: #FF9800;
+    --gray-900: #1a1a1a;
+    --gray-800: #2d2d2d;
+    --gray-700: #404040;
+    --gray-600: #545454;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f9fafb;
     --white: #ffffff;
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -14,7 +31,7 @@
 
 /* Estilos del header */
 header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    background: #0039A6;
     color: var(--white);
     padding: 1rem 1.6rem;
     display: flex;
@@ -195,7 +212,81 @@ nav a:active {
     }
 }
 
+/* Estilos con colores grises para jerarquía visual */
+.text-gray-600 {
+    color: var(--gray-600);
+}
 
+.text-gray-500 {
+    color: var(--gray-500);
+}
+
+.text-gray-400 {
+    color: var(--gray-400);
+}
+
+.bg-gray-50 {
+    background-color: var(--gray-50);
+}
+
+.bg-gray-100 {
+    background-color: var(--gray-100);
+}
+
+.bg-gray-200 {
+    background-color: var(--gray-200);
+}
+
+.border-gray-200 {
+    border-color: var(--gray-200);
+}
+
+.border-gray-300 {
+    border-color: var(--gray-300);
+}
+
+/* Estilos para texto secundario */
+.subtitle,
+.description,
+.meta-text {
+    color: var(--gray-600);
+}
+
+/* Separadores y líneas divisorias */
+.divider {
+    border-top: 1px solid var(--gray-200);
+    margin: 2rem 0;
+}
+
+.separator {
+    height: 1px;
+    background-color: var(--gray-300);
+    margin: 1rem 0;
+}
+
+/* Footer con colores grises */
+.footer-section {
+    background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+    color: var(--gray-200);
+}
+
+.footer-section h3 {
+    color: var(--white);
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--gray-300);
+}
+
+.footer-section a {
+    color: var(--gray-300);
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
 
 /* Footer */
 .footer {

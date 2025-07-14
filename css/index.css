@@ -12,8 +12,20 @@
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --shadow-heavy: rgba(0, 0, 0, 0.2);
-    --border-radius: 16px;
+    --border-radius: 4px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Paleta de colores grises */
+    --gray-900: #1a1a1a;
+    --gray-800: #2d2d2d;
+    --gray-700: #404040;
+    --gray-600: #555555;
+    --gray-500: #6b6b6b;
+    --gray-400: #808080;
+    --gray-300: #a6a6a6;
+    --gray-200: #cccccc;
+    --gray-100: #e6e6e6;
+    --gray-50: #f9fafb;
 }
 
 * {
@@ -294,13 +306,14 @@ main h1::after {
     padding: 0.8rem 2rem;
     font-size: 0.9rem;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 2px;
     text-decoration: none;
     transition: var(--transition);
     box-shadow: 0 4px 15px var(--shadow-light);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .btn-primario {
@@ -372,12 +385,13 @@ section.compromisos::before {
 
 .carta {
     background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
-    border-radius: var(--border-radius);
-    box-shadow: 0 15px 35px var(--shadow-light);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
     padding: 2.4rem 1.6rem;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
     border: 1px solid rgba(255, 255, 255, 0.8);
     animation: fadeInScale 0.6s ease-out;
 }
@@ -454,10 +468,10 @@ section.compromisos::before {
 }
 
 .tarjeta {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-lightest) 100%);
     color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px var(--shadow-medium);
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(13, 71, 161, 0.3), 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem 1.6rem;
     text-align: center;
     transition: var(--transition);
@@ -466,6 +480,7 @@ section.compromisos::before {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInUp 0.6s ease-out;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
 .tarjeta::before {
@@ -546,6 +561,75 @@ section.compromisos::before {
     transform: scale(1.05) rotate(1deg);
     box-shadow: 0 25px 50px var(--shadow-heavy);
 }
+
+/* Estilos con colores grises para elementos específicos */
+
+/* Texto descriptivo y subtítulos */
+.hero-subtitle,
+.section-description,
+.card-description {
+    color: var(--gray-600);
+}
+
+/* Enlaces y texto secundario */
+.text-muted,
+.secondary-text {
+    color: var(--gray-500);
+}
+
+/* Fondos sutiles para secciones */
+.section-alt {
+    background-color: var(--gray-50);
+}
+
+/* Bordes y separadores */
+.card-border {
+    border: 1px solid var(--gray-200);
+}
+
+.stats-border {
+    border-right: 2px solid var(--gray-300);
+}
+
+/* Iconos y elementos decorativos */
+.icon-secondary {
+    color: var(--gray-400);
+}
+
+/* Testimonios y citas */
+.testimonial-quote {
+    border-left: 4px solid var(--gray-300);
+    background-color: var(--gray-50);
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.testimonial-author {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+}
+
+/* Preloader y elementos de estado */
+.loading-text {
+    color: var(--gray-600);
+}
+
+.placeholder {
+    background-color: var(--gray-100);
+    color: var(--gray-500);
+}
+
+/* Badges y etiquetas */
+.badge-gray {
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+}
+
+.badge-light-gray {
+    background-color: var(--gray-100);
+    color: var(--gray-600);
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;

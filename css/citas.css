@@ -20,9 +20,21 @@
     --shadow-light: rgba(0, 0, 0, 0.08);
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --shadow-heavy: rgba(0, 0, 0, 0.2);
-    --border-radius: 16px;
+    --border-radius: 4px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    
+    /* Paleta de colores grises */
+    --gray-900: #1a1a1a;
+    --gray-800: #2d2d2d;
+    --gray-700: #404040;
+    --gray-600: #555555;
+    --gray-500: #6b6b6b;
+    --gray-400: #808080;
+    --gray-300: #a6a6a6;
+    --gray-200: #cccccc;
+    --gray-100: #e6e6e6;
+    --gray-50: #f9fafb;
     --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
 }
 
@@ -184,9 +196,10 @@ body {
     gap: 1rem;
     margin-bottom: 2rem;
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 2px;
     transition: var(--transition);
     border-left: 4px solid transparent;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .info-item:hover {
@@ -316,11 +329,12 @@ body {
     width: 100%;
     padding: 1rem;
     border: 2px solid #e0e6ed;
-    border-radius: 12px;
+    border-radius: 2px;
     font-size: 1rem;
     font-family: inherit;
     transition: var(--transition);
     background: var(--white);
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
 }
 
 .form-group input:focus,
@@ -526,12 +540,13 @@ body {
 .modal-info {
     background: var(--background-light);
     padding: 1rem;
-    border-radius: 12px;
+    border-radius: 2px;
     margin-top: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--text-light);
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .modal-info i {
@@ -571,10 +586,11 @@ body {
     right: 2rem;
     z-index: 9999;
     padding: 1rem 1.5rem;
-    border-radius: 12px;
+    border-radius: 2px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     max-width: 400px;
     transform: translateX(100%);
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
     transition: transform 0.3s ease;
     display: flex;
     align-items: center;
@@ -786,4 +802,120 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Estilos con colores grises para formularios de citas */
+
+/* Labels y texto de ayuda */
+.form-label {
+    color: var(--gray-700);
+}
+
+.form-help-text,
+.field-description {
+    color: var(--gray-500);
+    font-size: 0.875rem;
+}
+
+/* Campos de formulario */
+.form-control {
+    border-color: var(--gray-300);
+    background-color: var(--gray-50);
+}
+
+.form-control:focus {
+    border-color: var(--gray-400);
+    box-shadow: 0 0 0 0.2rem rgba(107, 107, 107, 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--gray-400);
+}
+
+/* Estados de validación */
+.form-feedback {
+    color: var(--gray-600);
+}
+
+.form-control.is-invalid {
+    border-color: var(--error-color);
+}
+
+.form-control.is-valid {
+    border-color: var(--success-color);
+}
+
+/* Grupos de campos */
+.form-group {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.fieldset {
+    border: 1px solid var(--gray-200);
+    background-color: var(--gray-50);
+}
+
+.fieldset legend {
+    color: var(--gray-700);
+}
+
+/* Calendario y selectores de fecha */
+.calendar-header {
+    background-color: var(--gray-100);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.calendar-day {
+    border: 1px solid var(--gray-200);
+}
+
+.calendar-day.disabled {
+    background-color: var(--gray-100);
+    color: var(--gray-400);
+}
+
+.calendar-day.today {
+    border-color: var(--gray-400);
+    font-weight: 600;
+}
+
+/* Horarios disponibles */
+.time-slot {
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+}
+
+.time-slot.unavailable {
+    background-color: var(--gray-200);
+    color: var(--gray-500);
+    cursor: not-allowed;
+}
+
+.time-slot:hover:not(.unavailable) {
+    background-color: var(--gray-200);
+    border-color: var(--gray-400);
+}
+
+/* Resumen de cita */
+.appointment-summary {
+    background-color: var(--gray-50);
+    border: 1px solid var(--gray-200);
+}
+
+.appointment-detail {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.appointment-detail:last-child {
+    border-bottom: none;
+}
+
+.appointment-label {
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.appointment-value {
+    color: var(--gray-800);
 }
