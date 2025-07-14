@@ -184,8 +184,7 @@ body {
     box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
     clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
 }
-    transition: var(--transition);
-}
+
 
 .card-icon i {
     font-size: 1.8rem;
@@ -404,9 +403,6 @@ body {
     transition: var(--transition);
     box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
     clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
-}
-    margin: 0 auto 20px;
-    transition: var(--transition);
 }
 
 .feature-icon i {

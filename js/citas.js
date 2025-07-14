@@ -1,14 +1,9 @@
-// ===============================================
-// CITAS.JS - FUNCIONALIDAD MODERNA DEL FORMULARIO
-// ===============================================
-
 document.addEventListener('DOMContentLoaded', function() {
     initializeCitasForm();
     setMinDate();
     addFormAnimations();
 });
 
-// Inicializar el formulario de citas
 function initializeCitasForm() {
     const form = document.getElementById('citaForm');
     if (!form) return;
