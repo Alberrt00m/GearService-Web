@@ -1,257 +1,396 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.appointment-form');
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCitasForm();
+    setMinDate();
+    addFormAnimations();
+});
+
+function initializeCitasForm() {
+    const form = document.getElementById('citaForm');
     if (!form) return;
 
-    // Función para validar campos
-    function validateField(field, errorMessage) {
-        const value = field.value.trim();
-        if (!value) {
-            showFieldError(field, errorMessage);
-            return false;
-        }
-        clearFieldError(field);
-        return true;
-    }
-
-    // Función para mostrar error en campo
-    function showFieldError(field, message) {
-        field.style.borderColor = '#dc3545';
-        field.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
-        
-        // Remover mensaje de error anterior si existe
-        const existingError = field.parentNode.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
-        
-        // Crear nuevo mensaje de error
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.style.cssText = `
-            color: #dc3545;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-            animation: slideIn 0.3s ease-out;
-        `;
-        errorDiv.textContent = message;
-        field.parentNode.appendChild(errorDiv);
-    }
-
-    // Función para limpiar error de campo
-    function clearFieldError(field) {
-        field.style.borderColor = '#28a745';
-        field.style.boxShadow = '0 0 0 3px rgba(40, 167, 69, 0.1)';
-        
-        const errorMessage = field.parentNode.querySelector('.error-message');
-        if (errorMessage) {
-            errorMessage.remove();
-        }
-    }
-
-    // Función para mostrar notificación
-    function showNotification(message, type = 'success') {
-        // Remover notificación anterior si existe
-        const existingNotification = document.querySelector('.notification');
-        if (existingNotification) {
-            existingNotification.remove();
-        }
-
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.style.cssText = `
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            background: ${type === 'success' ? 'linear-gradient(135deg, #28a745, #20c997)' : 'linear-gradient(135deg, #dc3545, #fd7e14)'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            animation: slideInRight 0.5s ease-out;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            max-width: 350px;
-        `;
-        
-        notification.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <i class="bi ${type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'}"></i>
-                <span>${message}</span>
-            </div>
-        `;
-
-        document.body.appendChild(notification);
-
-        // Remover después de 4 segundos
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.5s ease-out';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 500);
-        }, 4000);
-    }
-
+    // Event listeners
+    form.addEventListener('submit', handleFormSubmit);
+    
     // Validación en tiempo real
-    const fields = form.querySelectorAll('input, textarea');
-    fields.forEach(field => {
-        field.addEventListener('blur', function() {
-            if (this.value.trim()) {
-                clearFieldError(this);
-            }
-        });
-
-        field.addEventListener('input', function() {
-            const errorMessage = this.parentNode.querySelector('.error-message');
-            if (errorMessage && this.value.trim()) {
-                clearFieldError(this);
-            }
-        });
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => clearFieldError(input));
     });
 
-    // Función para generar ID único
-    function generateId() {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    // Validación especial para campos específicos
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', formatPhoneNumber);
     }
 
-    // Manejar envío del formulario
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    const plateInput = document.getElementById('licensePlate');
+    if (plateInput) {
+        plateInput.addEventListener('input', formatLicensePlate);
+    }
 
-        // Obtener campos
-        const nombreField = document.getElementById('fullName');
-        const modeloField = document.getElementById('vehicleModel');
-        const placaField = document.getElementById('licensePlate');
-        const descripcionField = document.getElementById('problemDescription');
-        const fechaHoraField = document.getElementById('preferredDateTime');
+    const emailInput = document.getElementById('email');
+    if (emailInput) {
+        emailInput.addEventListener('blur', validateEmail);
+    }
+}
 
-        // Validar campos
-        let isValid = true;
-        
-        if (!validateField(nombreField, 'El nombre completo es requerido')) {
-            isValid = false;
-        }
-        
-        if (!validateField(modeloField, 'El modelo del vehículo es requerido')) {
-            isValid = false;
-        }
-        
-        if (!validateField(placaField, 'La placa del vehículo es requerida')) {
-            isValid = false;
-        }
-        
-        if (!validateField(descripcionField, 'La descripción del problema es requerida')) {
-            isValid = false;
-        }
-        
-        if (!validateField(fechaHoraField, 'La fecha y hora son requeridas')) {
-            isValid = false;
-        }
+// Establecer fecha mínima (hoy)
+function setMinDate() {
+    const dateInput = document.getElementById('preferredDate');
+    if (dateInput) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+    }
+}
 
-        // Validar fecha no sea en el pasado
-        if (fechaHoraField.value) {
-            const selectedDate = new Date(fechaHoraField.value);
-            const now = new Date();
-            if (selectedDate <= now) {
-                showFieldError(fechaHoraField, 'La fecha debe ser futura');
-                isValid = false;
-            }
-        }
-
-        if (!isValid) {
-            showNotification('Por favor, corrige los errores en el formulario', 'error');
+// Manejo del envío del formulario
+async function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitButton = form.querySelector('.submit-button');
+    
+    // Mostrar estado de carga
+    showLoadingState(submitButton);
+    
+    try {
+        // Validar todos los campos
+        if (!validateForm(form)) {
+            hideLoadingState(submitButton);
+            showNotification('Por favor, completa todos los campos requeridos correctamente.', 'error');
             return;
         }
 
-        // Crear objeto cita
-        const cita = {
-            id: generateId(),
-            nombre: nombreField.value.trim(),
-            modelo: modeloField.value.trim(),
-            placa: placaField.value.trim(),
-            descripcion: descripcionField.value.trim(),
-            fechaHora: fechaHoraField.value,
-            fechaCreacion: new Date().toISOString(),
-            estado: 'pendiente'
-        };
-
-        // Obtener citas previas del localStorage
-        let citas = JSON.parse(localStorage.getItem('citas')) || [];
-        citas.push(cita);
-
-        // Guardar en localStorage
-        localStorage.setItem('citas', JSON.stringify(citas));
-
-        // Animación del botón
-        const submitButton = form.querySelector('.submit-button');
-        const originalText = submitButton.innerHTML;
+        // Simular envío (aquí irían las llamadas a la API)
+        await simulateFormSubmission();
         
-        submitButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Procesando...';
-        submitButton.disabled = true;
-        submitButton.style.opacity = '0.7';
+        // Mostrar éxito
+        showSuccessMessage();
+        resetForm(form);
+        
+    } catch (error) {
+        console.error('Error al enviar formulario:', error);
+        showNotification('Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.', 'error');
+    } finally {
+        hideLoadingState(submitButton);
+    }
+}
 
-        // Simular procesamiento
-        setTimeout(() => {
-            // Restaurar botón
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-            submitButton.style.opacity = '1';
-
-            // Limpiar formulario con animación
-            fields.forEach(field => {
-                field.style.transition = 'all 0.3s ease';
-                field.style.transform = 'scale(0.95)';
-                field.style.opacity = '0.5';
-            });
-
-            setTimeout(() => {
-                form.reset();
-                fields.forEach(field => {
-                    field.style.transform = 'scale(1)';
-                    field.style.opacity = '1';
-                    field.style.borderColor = '#e1e8f0';
-                    field.style.boxShadow = 'none';
-                });
-            }, 300);
-
-            // Mostrar mensaje de éxito
-            showNotification(`¡Excelente! Tu cita ha sido agendada para el ${new Date(cita.fechaHora).toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            })}. Te contactaremos pronto.`, 'success');
-
-        }, 1500);
+// Validar formulario completo
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
     });
+    
+    return isValid;
+}
 
-    // Agregar estilos para animaciones
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
+// Validar campo individual
+function validateField(field) {
+    const value = field.value.trim();
+    const fieldType = field.type;
+    const fieldName = field.name;
+    
+    // Limpiar errores previos
+    clearFieldError(field);
+    
+    // Verificar si está vacío (para campos requeridos)
+    if (field.hasAttribute('required') && !value) {
+        showFieldError(field, 'Este campo es obligatorio');
+        return false;
+    }
+    
+    // Validaciones específicas por tipo
+    switch (fieldType) {
+        case 'email':
+            return validateEmail(field);
+        case 'tel':
+            return validatePhone(field);
+        case 'number':
+            return validateNumber(field);
+        default:
+            if (fieldName === 'licensePlate') {
+                return validateLicensePlate(field);
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            return true;
+    }
+}
+
+// Validar email
+function validateEmail(field) {
+    const email = field.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (email && !emailRegex.test(email)) {
+        showFieldError(field, 'Por favor, ingresa un email válido');
+        return false;
+    }
+    
+    if (email) {
+        showFieldSuccess(field);
+    }
+    return true;
+}
+
+// Validar teléfono
+function validatePhone(field) {
+    const phone = field.value.trim();
+    const phoneRegex = /^[0-9]{9}$/;
+    
+    if (phone && !phoneRegex.test(phone.replace(/\s/g, ''))) {
+        showFieldError(field, 'El teléfono debe tener 9 dígitos');
+        return false;
+    }
+    
+    if (phone) {
+        showFieldSuccess(field);
+    }
+    return true;
+}
+
+// Validar número
+function validateNumber(field) {
+    const value = field.value.trim();
+    const min = field.getAttribute('min');
+    const max = field.getAttribute('max');
+    
+    if (value) {
+        const num = parseInt(value);
+        if (min && num < parseInt(min)) {
+            showFieldError(field, `El valor mínimo es ${min}`);
+            return false;
         }
-        
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
+        if (max && num > parseInt(max)) {
+            showFieldError(field, `El valor máximo es ${max}`);
+            return false;
         }
+        showFieldSuccess(field);
+    }
+    return true;
+}
+
+// Validar placa
+function validateLicensePlate(field) {
+    const plate = field.value.trim().toUpperCase();
+    const plateRegex = /^[A-Z]{3}-[0-9]{3}$/;
+    
+    if (plate && !plateRegex.test(plate)) {
+        showFieldError(field, 'Formato: ABC-123');
+        return false;
+    }
+    
+    if (plate) {
+        showFieldSuccess(field);
+    }
+    return true;
+}
+
+// Formatear número de teléfono
+function formatPhoneNumber(event) {
+    let value = event.target.value.replace(/\D/g, '');
+    if (value.length > 9) value = value.slice(0, 9);
+    
+    // Formatear como 999 123 456
+    if (value.length > 6) {
+        value = value.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3');
+    } else if (value.length > 3) {
+        value = value.replace(/(\d{3})(\d{3})/, '$1 $2');
+    }
+    
+    event.target.value = value;
+}
+
+// Formatear placa
+function formatLicensePlate(event) {
+    let value = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    
+    if (value.length > 6) value = value.slice(0, 6);
+    
+    // Formatear como ABC-123
+    if (value.length > 3) {
+        value = value.replace(/([A-Z]{3})([0-9]{1,3})/, '$1-$2');
+    }
+    
+    event.target.value = value;
+}
+
+// Mostrar error en campo
+function showFieldError(field, message) {
+    field.classList.add('error');
+    field.classList.remove('success');
+    
+    // Remover mensaje anterior
+    const existingError = field.parentNode.querySelector('.field-message');
+    if (existingError) existingError.remove();
+    
+    // Crear mensaje de error
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-message error-message';
+    errorDiv.innerHTML = `<i class="bi bi-exclamation-circle"></i> ${message}`;
+    field.parentNode.appendChild(errorDiv);
+    
+    // Animación de shake
+    field.style.animation = 'shake 0.5s ease-in-out';
+    setTimeout(() => field.style.animation = '', 500);
+}
+
+// Mostrar éxito en campo
+function showFieldSuccess(field) {
+    field.classList.add('success');
+    field.classList.remove('error');
+    
+    // Remover mensaje anterior
+    const existingMessage = field.parentNode.querySelector('.field-message');
+    if (existingMessage) existingMessage.remove();
+    
+    // Crear mensaje de éxito
+    const successDiv = document.createElement('div');
+    successDiv.className = 'field-message success-message';
+    successDiv.innerHTML = '<i class="bi bi-check-circle"></i> Correcto';
+    field.parentNode.appendChild(successDiv);
+}
+
+// Limpiar error de campo
+function clearFieldError(field) {
+    field.classList.remove('error');
+    const errorMessage = field.parentNode.querySelector('.field-message');
+    if (errorMessage) errorMessage.remove();
+}
+
+// Estado de carga del botón
+function showLoadingState(button) {
+    button.disabled = true;
+    button.innerHTML = '<i class="bi bi-hourglass-split"></i> Enviando...';
+    button.style.opacity = '0.7';
+}
+
+// Ocultar estado de carga
+function hideLoadingState(button) {
+    button.disabled = false;
+    button.innerHTML = '<i class="bi bi-send"></i> Enviar Solicitud de Cita';
+    button.style.opacity = '1';
+}
+
+// Simular envío del formulario
+function simulateFormSubmission() {
+    return new Promise((resolve) => {
+        setTimeout(resolve, 2000); // Simular delay de red
+    });
+}
+
+// Mostrar mensaje de éxito
+function showSuccessMessage() {
+    const successModal = createSuccessModal();
+    document.body.appendChild(successModal);
+    
+    // Mostrar modal con animación
+    setTimeout(() => successModal.classList.add('show'), 100);
+    
+    // Auto cerrar después de 5 segundos
+    setTimeout(() => {
+        closeModal(successModal);
+    }, 5000);
+}
+
+// Crear modal de éxito
+function createSuccessModal() {
+    const modal = document.createElement('div');
+    modal.className = 'success-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="bi bi-check-circle-fill"></i>
+                <h3>¡Solicitud Enviada!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Tu solicitud de cita ha sido enviada exitosamente.</p>
+                <p>Nos pondremos en contacto contigo en las próximas 2 horas para confirmar tu cita.</p>
+                <div class="modal-info">
+                    <i class="bi bi-telephone"></i>
+                    <span>También puedes llamarnos al: (01) 234-5678</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal(this.closest('.success-modal'))" class="modal-btn">
+                    <i class="bi bi-check"></i> Entendido
+                </button>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal(this.parentNode)"></div>
     `;
-    document.head.appendChild(style);
-});
+    
+    return modal;
+}
+
+// Cerrar modal
+function closeModal(modal) {
+    modal.classList.add('hiding');
+    setTimeout(() => {
+        if (modal.parentNode) {
+            modal.parentNode.removeChild(modal);
+        }
+    }, 300);
+}
+
+// Resetear formulario
+function resetForm(form) {
+    form.reset();
+    
+    // Limpiar todas las validaciones
+    const fields = form.querySelectorAll('input, select, textarea');
+    fields.forEach(field => {
+        field.classList.remove('error', 'success');
+        clearFieldError(field);
+    });
+}
+
+// Mostrar notificación
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <i class="bi bi-${type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
+        <span>${message}</span>
+        <button onclick="this.parentNode.remove()" class="notification-close">
+            <i class="bi bi-x"></i>
+        </button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Mostrar con animación
+    setTimeout(() => notification.classList.add('show'), 100);
+    
+    // Auto remover después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.classList.add('hiding');
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
+
+// Añadir animaciones al formulario
+function addFormAnimations() {
+    const sections = document.querySelectorAll('.form-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            }
+        });
+    });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// Función global para cerrar modal (para onclick)
+window.closeModal = closeModal;

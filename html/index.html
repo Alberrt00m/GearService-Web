@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearService</title>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Bootstrap Iconos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
+
 </head>
 
 <body>
@@ -17,14 +18,16 @@
             Gear Service
         </div>
         <nav>
-            <a href="index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
-            <a href="servicios.html"><i class="bi bi-tools"></i> Servicios</a>
-            <a href="citas.html"><i class="bi bi-calendar-check-fill"></i> Citas</a>
-            <a href="local.html"><i class="bi bi-geo-alt-fill"></i> Locales</a>
+            <a href="index.html" class="active" id="nav-inicio"><i class="bi bi-house-door-fill"></i> Inicio</a>
+            <a href="servicios.html" id="nav-servicios"><i class="bi bi-tools"></i> Servicios</a>
+            <a href="citas.html" id="nav-citas"><i class="bi bi-calendar-check-fill"></i> Citas</a>
+            <a href="local.html" id="nav-locales"><i class="bi bi-geo-alt-fill"></i> Locales</a>
         </nav>
     </header>
+
     <main>
-        <div class="carousel-wrapper"> <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-wrapper">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -33,12 +36,24 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="../img/1banner.png" alt="Primer slide">
+                <div class="carousel-caption">
+                    <h3>Servicios de Calidad</h3>
+                    <p>Mantenimiento y reparación de vehículos con los mejores estándares de calidad</p>
+                </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="../img/2banner.png" alt="Segundo slide">
+                <div class="carousel-caption">
+                    <h3>Tecnología Avanzada</h3>
+                    <p>Equipos de última generación para diagnósticos precisos y reparaciones eficientes</p>
+                </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="../img/3banner.png" alt="Tercer slide">
+                <div class="carousel-caption">
+                    <h3>Expertos en Mecánica</h3>
+                    <p>Mecánicos certificados con años de experiencia para cuidar tu vehículo</p>
+                </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -50,7 +65,7 @@
             <span class="sr-only">Siguiente</span>
         </a>
     </div>
-</div>
+        </div>
         <section class="bienvenida">
             <h1>Bienvenido a Gear Service</h1>
             <p class="descripcion">
@@ -62,7 +77,6 @@
                 <a href="servicios.html" class="btn btn-secundario">Ver Servicios</a>
             </div>
         </section>
-
         <section class="compromisos">
             <h1>Nuestros Compromisos</h1><br>
             <div class="contenedor-cartas">
@@ -87,7 +101,8 @@
             </div>
         </section>
 
-        <br><h1>¡Bienvenido a GearService!</h1>
+        <section class="servicios-principales">
+            <h1>¡Bienvenido a GearService!</h1>
         <p class="descripcion">Les ofrecemos una gran variedad de productos y servicios para nuestros clientes</p>
         <div class="tarjetas-servicios">
             <div class="tarjeta">
@@ -104,14 +119,16 @@
                 <img src="../img/bateria.png" alt="Batería" class="tarjeta-img">
                 <h2>Revisión de batería</h2>
                 <p>Verificamos el estado de la batería de su auto.</p>
-            </div>
-        </div>
+            </div>            </div>
+        </section>
 
-        <br><h1>Preferencia a Citas</h1>
-        <p class="descripcion">¿Buscas ahorrar tiempo en atender tu vehículo?</p>
-        <p class="descripcion">¡Agenda una cita con nosotros hoy y te atenderemos de inmediato en nuestros locales
-            autorizados!</p>
-        <img src="../img/cita hoy.png" alt="Saca tu cita hoy" class="imagen-marco">
+        <section class="citas-promocion">
+            <h1>Preferencia a Citas</h1>
+            <p class="descripcion">¿Buscas ahorrar tiempo en atender tu vehículo?</p>
+            <p class="descripcion">¡Agenda una cita con nosotros hoy y te atenderemos de inmediato en nuestros locales
+                autorizados!</p>
+            <img src="../img/cita hoy.png" alt="Saca tu cita hoy" class="imagen-marco">
+        </section>
     </main>
 
     <footer class="footer">
@@ -120,9 +137,9 @@
             <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
         </div>
     </footer>
-   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
