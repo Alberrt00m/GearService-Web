@@ -351,18 +351,6 @@
     background: linear-gradient(135deg, var(--white) 0%, #f8f0ff 100%);
 }
 
-/* Estilo para el enlace activo en la navegación */
-nav a.activo {
-    background: var(--secondary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
-}
-
-nav a.activo i {
-    transform: scale(1.2);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .grid-servicios {
