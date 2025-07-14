@@ -985,3 +985,236 @@ body {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
+
+/* BOTÓN TOGGLE DÍA/NOCHE */
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-inner {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 50px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-switch::before {
+    content: '🌙';
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+/* Estado día (cuando esté activo) */
+.theme-toggle.light .theme-toggle-inner {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch {
+    transform: translateX(22px);
+    background: linear-gradient(135deg, #ff9800 0%, #ffa726 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch::before {
+    content: '☀️';
+}
+
+/* Tooltip del botón */
+.theme-toggle::after {
+    content: 'Cambiar tema';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.theme-toggle:hover::after {
+    opacity: 1;
+}
+
+/* Responsive para el botón toggle */
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin-left: 0.5rem;
+        padding: 0.3rem;
+    }
+    
+    .theme-toggle-inner {
+        width: 40px;
+        height: 22px;
+    }
+    
+    .theme-toggle-switch {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+    }
+    
+    .theme-toggle.light .theme-toggle-switch {
+        transform: translateX(18px);
+    }
+    
+    .theme-toggle-switch::before {
+        font-size: 10px;
+    }
+}
+
+/* Variables CSS para el tema claro */
+:root.light-theme {
+    --primary-color: #00398f;
+    --secondary-color: #ff9800;
+    --accent-color: #667eea;
+    --text-dark: #2c3e50;
+    --text-light: #757575;
+    --background-light: #f8fafc;
+    --white: #ffffff;
+}
+
+/* Estilos para el tema claro en citas */
+:root.light-theme body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+}
+
+:root.light-theme main {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+:root.light-theme .citas-header h1 {
+    color: var(--primary-color) !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+:root.light-theme .form-container {
+    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+:root.light-theme .modal-content {
+    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ESTILOS PARA TEMA OSCURO/NOCTURNO EN CITAS */
+:root:not(.light-theme) body {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) main {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .citas-header h1 {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+:root:not(.light-theme) .form-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .form-container h2 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .form-container label {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .form-container input,
+:root:not(.light-theme) .form-container select,
+:root:not(.light-theme) .form-container textarea {
+    background: #2d2d2d !important;
+    border: 1px solid #555555 !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .form-container input:focus,
+:root:not(.light-theme) .form-container select:focus,
+:root:not(.light-theme) .form-container textarea:focus {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+}
+
+:root:not(.light-theme) .btn-primary {
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%) !important;
+    color: #000000 !important;
+    border: none !important;
+}
+
+:root:not(.light-theme) .btn-primary:hover {
+    background: linear-gradient(135deg, #cccccc 0%, #999999 100%) !important;
+    color: #000000 !important;
+}
+
+:root:not(.light-theme) .modal-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .modal-header {
+    border-bottom: 1px solid #555555 !important;
+}
+
+:root:not(.light-theme) .modal-footer {
+    border-top: 1px solid #555555 !important;
+}

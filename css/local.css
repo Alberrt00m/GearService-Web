@@ -130,6 +130,23 @@ body {
     margin-right: 15px;
 }
 
+/* Título de contacto mejorado para modo diurno */
+:root.light-theme .contact-info h2 {
+    color: #1e40af !important;
+    text-shadow: 0 2px 4px rgba(37, 99, 235, 0.2) !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+:root.light-theme .contact-info h2 i {
+    color: #f59e0b !important;
+    filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.3)) !important;
+    text-shadow: none !important;
+}
+
 .info-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -255,9 +272,8 @@ body {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 500;
-    font-size: 0.85rem;
-    transition: var(--transition);
     font-size: 0.9rem;
+    transition: var(--transition);
 }
 
 .contact-link:hover {
@@ -265,6 +281,18 @@ body {
     box-shadow: var(--shadow-medium);
     color: var(--white);
     text-decoration: none;
+}
+
+/* Iconos en enlaces de contacto para modo diurno */
+:root.light-theme .contact-link i {
+    color: #2563eb !important;
+    margin-right: 6px !important;
+    filter: drop-shadow(0 1px 2px rgba(37, 99, 235, 0.2)) !important;
+}
+
+:root.light-theme .contact-link:hover i {
+    color: #1d4ed8 !important;
+    filter: drop-shadow(0 1px 3px rgba(29, 78, 216, 0.3)) !important;
 }
 
 /* SECCIÓN DEL MAPA */
@@ -838,3 +866,607 @@ html {
         page-break-inside: avoid;
     }
 }
+
+/* BOTÓN TOGGLE DÍA/NOCHE */
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-inner {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 50px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-switch::before {
+    content: '🌙';
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+/* Estado día (cuando esté activo) */
+.theme-toggle.light .theme-toggle-inner {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch {
+    transform: translateX(22px);
+    background: linear-gradient(135deg, #ff9800 0%, #ffa726 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch::before {
+    content: '☀️';
+}
+
+/* Tooltip del botón */
+.theme-toggle::after {
+    content: 'Cambiar tema';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.theme-toggle:hover::after {
+    opacity: 1;
+}
+
+/* Responsive para el botón toggle */
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin-left: 0.5rem;
+        padding: 0.3rem;
+    }
+    
+    .theme-toggle-inner {
+        width: 40px;
+        height: 22px;
+    }
+    
+    .theme-toggle-switch {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
+    }
+    
+    .theme-toggle.light .theme-toggle-switch {
+        transform: translateX(18px);
+    }
+    
+    .theme-toggle-switch::before {
+        font-size: 10px;
+    }
+}
+
+/* Variables CSS para el tema claro */
+:root.light-theme {
+    --primary-color: #2563eb;
+    --secondary-color: #f59e0b;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --bg-color: #f8fafc;
+    --white: #ffffff;
+}
+
+/* Estilos para el tema claro en locales */
+:root.light-theme body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+}
+
+:root.light-theme main {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+:root.light-theme .locales-header h1 {
+    color: var(--primary-color) !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+:root.light-theme .info-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%) !important;
+    border: 2px solid rgba(37, 99, 235, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+:root.light-theme .info-card:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%) !important;
+    border: 2px solid rgba(37, 99, 235, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-10px) !important;
+}
+
+:root.light-theme .info-card h3 {
+    color: #1e40af !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(37, 99, 235, 0.1) !important;
+}
+
+:root.light-theme .info-card p {
+    color: #374151 !important;
+    font-weight: 500 !important;
+}
+
+:root.light-theme .info-card p strong {
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+}
+
+:root.light-theme .card-icon {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4) !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+}
+
+:root.light-theme .info-card:hover .card-icon {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+    box-shadow: 0 6px 24px rgba(37, 99, 235, 0.5) !important;
+    transform: scale(1.15) !important;
+}
+
+/* ESTILOS PARA TEMA OSCURO/NOCTURNO EN LOCALES */
+:root:not(.light-theme) body {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) main {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .locales-header h1 {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+:root:not(.light-theme) .intro-text {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .info-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+:root:not(.light-theme) .info-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+:root:not(.light-theme) .info-card h3 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .info-card p {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .address {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-info {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) p {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) h1,
+:root:not(.light-theme) h2,
+:root:not(.light-theme) h3,
+:root:not(.light-theme) h4,
+:root:not(.light-theme) h5,
+:root:not(.light-theme) h6 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .text-dark {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .text-muted {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .info-item {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .info-item h4 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .info-item p {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .info-item .text-dark {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .info-item .text-muted {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .additional-info {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .additional-info h3 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .additional-info p {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .additional-info ul {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .additional-info li {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .card-body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .card-text {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .small {
+    color: #cccccc !important;
+}
+
+/* Información de Contacto en modo nocturno */
+:root:not(.light-theme) .contact-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section h2,
+:root:not(.light-theme) .contact-section h3,
+:root:not(.light-theme) .contact-section h4 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section p {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section .text-muted {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .contact-section .contact-item {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section .phone,
+:root:not(.light-theme) .contact-section .email,
+:root:not(.light-theme) .contact-section .address-text {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section .schedule {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section .schedule-item {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section strong {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-section .lead {
+    color: #cccccc !important;
+}
+
+:root:not(.light-theme) .list-unstyled li {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .list-unstyled li strong {
+    color: #ffffff !important;
+}
+
+/* Información específica de contacto en blanco */
+:root:not(.light-theme) .contact-info strong,
+:root:not(.light-theme) .contact-info span {
+    color: #ffffff !important;
+}
+
+/* Números de teléfono específicos */
+:root:not(.light-theme) .phone-number,
+:root:not(.light-theme) .tel,
+:root:not(.light-theme) a[href^="tel:"] {
+    color: #ffffff !important;
+}
+
+/* Horarios específicos */
+:root:not(.light-theme) .hours,
+:root:not(.light-theme) .schedule-hours,
+:root:not(.light-theme) .working-hours {
+    color: #ffffff !important;
+}
+
+/* Botón "Llamar" */
+:root:not(.light-theme) .btn-call,
+:root:not(.light-theme) .call-button,
+:root:not(.light-theme) .btn-outline-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Elementos específicos de texto */
+:root:not(.light-theme) .text-primary {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .text-secondary {
+    color: #cccccc !important;
+}
+
+/* Días de la semana y horarios */
+:root:not(.light-theme) .day-label {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .time-label {
+    color: #ffffff !important;
+}
+
+/* Cualquier link de teléfono */
+:root:not(.light-theme) a[href*="971"],
+:root:not(.light-theme) a[href*="123"],
+:root:not(.light-theme) a[href*="tel"] {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Forzar todo el texto del contenedor de contacto a blanco */
+:root:not(.light-theme) .contact-container,
+:root:not(.light-theme) .contact-details,
+:root:not(.light-theme) .phone-info,
+:root:not(.light-theme) .schedule-info {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .contact-container *,
+:root:not(.light-theme) .contact-details *,
+:root:not(.light-theme) .phone-info *,
+:root:not(.light-theme) .schedule-info * {
+    color: #ffffff !important;
+}
+
+/* Selectores muy específicos para forzar el color blanco */
+:root:not(.light-theme) * {
+    --bs-body-color: #ffffff !important;
+}
+
+/* Mantener "cerrado" en rojo incluso en modo nocturno */
+:root:not(.light-theme) .cerrado,
+:root:not(.light-theme) .closed,
+:root:not(.light-theme) .text-danger,
+:root:not(.light-theme) span[class*="cerrado"],
+:root:not(.light-theme) .status-closed {
+    color: #dc3545 !important; /* Bootstrap danger red */
+}
+
+/* Texto específico "cerrado" */
+:root:not(.light-theme) *[data-status="closed"],
+:root:not(.light-theme) .schedule-status.closed {
+    color: #ff0000 !important;
+}
+
+/* Forzar rojo para cualquier elemento que contenga "cerrado" */
+:root:not(.light-theme) .text-red,
+:root:not(.light-theme) .red-text {
+    color: #dc3545 !important;
+}
+
+/* Cards de "¿Por qué elegirnos?" con fondo negro en modo nocturno */
+:root:not(.light-theme) .why-choose-us .card,
+:root:not(.light-theme) .por-que-elegirnos .card,
+:root:not(.light-theme) .why-us .card,
+:root:not(.light-theme) .choose-us-section .card {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .why-choose-us .card-body,
+:root:not(.light-theme) .por-que-elegirnos .card-body,
+:root:not(.light-theme) .why-us .card-body,
+:root:not(.light-theme) .choose-us-section .card-body {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .why-choose-us .card h3,
+:root:not(.light-theme) .why-choose-us .card h4,
+:root:not(.light-theme) .por-que-elegirnos .card h3,
+:root:not(.light-theme) .por-que-elegirnos .card h4 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .why-choose-us .card p,
+:root:not(.light-theme) .por-que-elegirnos .card p {
+    color: #ffffff !important;
+}
+
+/* Tarjetas de características/beneficios */
+:root:not(.light-theme) .feature-card,
+:root:not(.light-theme) .benefit-card {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* Cards específicas de características del local */
+:root:not(.light-theme) .feature-item,
+:root:not(.light-theme) .benefit-item,
+:root:not(.light-theme) .service-feature,
+:root:not(.light-theme) .amenity-card {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* Contenido de las cards de características */
+:root:not(.light-theme) .feature-item h3,
+:root:not(.light-theme) .feature-item h4,
+:root:not(.light-theme) .benefit-item h3,
+:root:not(.light-theme) .benefit-item h4,
+:root:not(.light-theme) .service-feature h3,
+:root:not(.light-theme) .service-feature h4,
+:root:not(.light-theme) .amenity-card h3,
+:root:not(.light-theme) .amenity-card h4 {
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .feature-item p,
+:root:not(.light-theme) .benefit-item p,
+:root:not(.light-theme) .service-feature p,
+:root:not(.light-theme) .amenity-card p {
+    color: #ffffff !important;
+}
+
+/* Cards de Bootstrap genéricas */
+:root:not(.light-theme) .card {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+:root:not(.light-theme) .card-title {
+    color: #ffffff !important;
+}
+
+/* Iconos dentro de las cards de características */
+:root:not(.light-theme) .feature-item i,
+:root:not(.light-theme) .benefit-item i,
+:root:not(.light-theme) .service-feature i,
+:root:not(.light-theme) .amenity-card i {
+    color: #ffffff !important;
+}
+
+/* Estilos mejorados para horarios en modo diurno */
+:root.light-theme .schedule-item {
+    border-bottom: 1px solid rgba(37, 99, 235, 0.2) !important;
+    padding: 8px 0 !important;
+}
+
+:root.light-theme .schedule-item .day {
+    color: #1e40af !important;
+    font-weight: 600 !important;
+}
+
+:root.light-theme .schedule-item .time {
+    color: #374151 !important;
+    font-weight: 500 !important;
+}
+
+:root.light-theme .schedule-item.closed .time {
+    color: #dc2626 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(220, 38, 38, 0.2) !important;
+}
+
+:root.light-theme .contact-link {
+    color: #2563eb !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+}
+
+:root.light-theme .contact-link:hover {
+    background: rgba(37, 99, 235, 0.1) !important;
+    color: #1d4ed8 !important;
+    text-decoration: none !important;
+    transform: translateY(-1px) !important;
+}
+
+:root.light-theme .card-icon i {
+    color: #ffffff !important;
+    font-size: 1.8rem !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)) !important;
+}
+
+:root.light-theme .info-card:hover .card-icon i {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5)) !important;
+}
+
+
