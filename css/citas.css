@@ -137,6 +137,8 @@ body {
 .appointment-section {
     padding: 4rem 0;
     min-height: calc(100vh - 200px);
+    transform: scale(0.9);
+    transform-origin: top center;
 }
 
 .container {
@@ -248,6 +250,8 @@ body {
 /* Formulario */
 .appointment-form {
     padding: 2rem;
+    transform: scale(0.9);
+    transform-origin: top left;
 }
 
 .form-section {
@@ -702,6 +706,8 @@ body {
     
     .appointment-section {
         padding: 2rem 0;
+        transform: scale(0.9);
+        transform-origin: top center;
     }
     
     .form-row {
@@ -711,6 +717,8 @@ body {
     .form-header,
     .appointment-form {
         padding: 1.5rem;
+        transform: scale(0.9);
+        transform-origin: top left;
     }
     
     .info-panel {
