@@ -38,13 +38,13 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000000 100%);
     line-height: 1.6;
     color: var(--text-dark);
 }
 
 main {
-    background: var(--background-light);
+    background: rgba(0, 0, 0, 0.8);
     padding: 0;
     text-align: center;
     flex: 1;
@@ -58,21 +58,21 @@ main::before {
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(180deg, rgba(0, 57, 143, 0.05) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(0, 57, 143, 0.15) 0%, transparent 100%);
     pointer-events: none;
 }
 
 main h1 {
     font-family: 'Oswald', 'Arial Narrow', sans-serif;
-    color: var(--primary-color);
+    color: #ffffff;
     font-size: 2.8rem;
     font-weight: 600;
     margin: 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 50%, #03A9F4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 4px 15px rgba(0, 57, 143, 0.1);
+    text-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     position: relative;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ main h1::after {
 }
 
 .descripcion {
-    color: var(--text-light);
+    color: #c0c0c0;
     text-align: center;
     font-size: 1rem;
     font-weight: 400;
@@ -257,14 +257,14 @@ main h1::after {
 .bienvenida {
     text-align: center;
     padding: 3.2rem 1.6rem;
-    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%);
     border-radius: var(--border-radius);
     margin: 2.4rem auto;
     max-width: 1120px;
-    box-shadow: 0 10px 30px var(--shadow-light);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -275,13 +275,13 @@ main h1::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(103, 126, 234, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 20%, rgba(103, 126, 234, 0.12) 0%, transparent 60%);
     pointer-events: none;
 }
 
 .bienvenida .descripcion {
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: #d0d0d0;
     margin-bottom: 2.4rem;
     max-width: 560px;
     margin-left: auto;
@@ -345,7 +345,7 @@ main h1::after {
 section.compromisos {
     padding: 3.2rem 1.6rem;
     text-align: center;
-    background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
     position: relative;
     overflow: hidden;
 }
@@ -357,13 +357,13 @@ section.compromisos::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 70% 80%, rgba(103, 126, 234, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 80%, rgba(103, 126, 234, 0.15) 0%, transparent 60%);
     pointer-events: none;
 }
 
 .compromisos h1 {
     font-size: 2.6rem;
-    color: var(--primary-color);
+    color: #ffffff;
     margin-bottom: 2.4rem;
     font-family: 'Oswald', 'Arial Narrow', sans-serif;
     font-weight: 600;
@@ -371,6 +371,7 @@ section.compromisos::before {
     z-index: 2;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .contenedor-cartas {
@@ -384,15 +385,15 @@ section.compromisos::before {
 }
 
 .carta {
-    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%);
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%);
     border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(255, 255, 255, 0.05);
     padding: 2.4rem 1.6rem;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeInScale 0.6s ease-out;
 }
 
@@ -403,7 +404,7 @@ section.compromisos::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(103, 126, 234, 0.02) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(103, 126, 234, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -435,7 +436,7 @@ section.compromisos::before {
 
 .carta h3 {
     font-size: 1.4rem;
-    color: var(--primary-color);
+    color: #ffffff;
     margin-bottom: 0.8rem;
     font-family: 'Oswald', 'Arial Narrow', sans-serif;
     font-weight: 500;
@@ -443,11 +444,12 @@ section.compromisos::before {
     z-index: 2;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
 }
 
 .carta p {
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: #e0e0e0;
     line-height: 1.7;
     position: relative;
     z-index: 2;
@@ -456,6 +458,7 @@ section.compromisos::before {
 /* Servicios principales */
 .servicios-principales {
     padding: 2.4rem 1.6rem;
+    background: linear-gradient(135deg, rgba(25, 25, 25, 0.9) 0%, rgba(10, 10, 10, 0.85) 100%);
 }
 
 .tarjetas-servicios {
@@ -543,6 +546,7 @@ section.compromisos::before {
 /* Sección de citas */
 .citas-promocion {
     padding: 2.4rem 1.6rem;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.85) 100%);
 }
 
 .imagen-marco {
@@ -652,16 +656,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-lightest) 100%);
+    background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--primary-lightest) 0%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, #29B6F6 0%, #03A9F4 100%);
 }
 
 /* Focus states mejorados */
@@ -670,170 +674,209 @@ html {
     outline-offset: 2px;
 }
 
-/* RESPONSIVE DESIGN MEJORADO */
-@media (max-width: 1200px) {
-    .logo {
-        font-size: 2.0rem;
-    }
-    
-    main h1 {
-        font-size: 2.6rem;
-    }
-    
-    .contenedor-cartas {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
+/* BOTÓN TOGGLE DÍA/NOCHE */
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 900px) {
-    .tarjetas-servicios {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        gap: 2rem;
-    }
-    
-    .botones {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .botones a.btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-    
-    .contenedor-cartas {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.theme-toggle:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.theme-toggle-inner {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 50px;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-switch::before {
+    content: '🌙';
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+/* Estado día (cuando esté activo) */
+.theme-toggle.light .theme-toggle-inner {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch {
+    transform: translateX(22px);
+    background: linear-gradient(135deg, #ff9800 0%, #ffa726 100%);
+}
+
+.theme-toggle.light .theme-toggle-switch::before {
+    content: '☀️';
+}
+
+/* Tooltip del botón */
+.theme-toggle::after {
+    content: 'Cambiar tema';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.theme-toggle:hover::after {
+    opacity: 1;
+}
+
+/* Responsive para el botón toggle */
 @media (max-width: 768px) {
-    main h1 {
-        font-size: 2.2rem;
-        padding: 0 1rem;
+    .theme-toggle {
+        margin-left: 0.5rem;
+        padding: 0.3rem;
     }
     
-    .bienvenida {
-        margin: 2rem 1rem;
-        padding: 3rem 1.5rem;
-    }
-    
-    .compromisos h1 {
-        font-size: 2.2rem;
-    }
-    
-    section.compromisos {
-        padding: 3rem 1rem;
-    }
-
-    .carousel-wrapper {
-        height: 350px;
-    }
-    
-    .carousel-inner,
-    .carousel-inner .carousel-item {
-        height: 350px;
-    }
-
-    .carousel-caption {
-        bottom: 30px;
-        padding: 15px 20px;
-        max-width: 90%;
-    }
-    
-    .carousel-caption h3 {
-        font-size: 1.8rem;
-        margin-bottom: 8px;
-    }
-    
-    .carousel-caption p {
-        font-size: 1rem;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
+    .theme-toggle-inner {
         width: 40px;
-        height: 40px;
+        height: 22px;
     }
     
-    .carousel-control-prev {
-        left: 10px;
+    .theme-toggle-switch {
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 2px;
     }
     
-    .carousel-control-next {
-        right: 10px;
+    .theme-toggle.light .theme-toggle-switch {
+        transform: translateX(18px);
+    }
+    
+    .theme-toggle-switch::before {
+        font-size: 10px;
     }
 }
 
-@media (max-width: 600px) {
-    main h1 {
-        font-size: 1.8rem;
-    }
-    
-    .descripcion {
-        font-size: 1.1rem;
-        margin: 1.5rem 1rem;
-    }
-    
-    .bienvenida {
-        padding: 2rem 1rem;
-    }
-    
-    .bienvenida .descripcion {
-        font-size: 1.2rem;
-    }
-    
-    .carta {
-        padding: 2rem 1.5rem;
-    }
-    
-    .icono {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-    }
-    
-    .carta h3 {
-        font-size: 1.3rem;
-    }
-
-    .carousel-wrapper {
-        height: 280px;
-        margin: 0;
-    }
-    
-    .carousel-inner,
-    .carousel-inner .carousel-item {
-        height: 280px;
-    }
-
-    .carousel-caption {
-        bottom: 20px;
-        padding: 12px 15px;
-        max-width: 95%;
-    }
-    
-    .carousel-caption h3 {
-        font-size: 1.4rem;
-        margin-bottom: 6px;
-    }
-    
-    .carousel-caption p {
-        font-size: 0.9rem;
-    }
+/* Variables CSS para el tema claro */
+:root.light-theme {
+    --primary-color: #00398f;
+    --secondary-color: #ff9800;
+    --accent-color: #667eea;
+    --text-dark: #2c3e50;
+    --text-light: #757575;
+    --background-light: #f8fafc;
+    --white: #ffffff;
 }
 
-/* Print styles */
-@media print {
-    .carousel-wrapper,
-    .footer {
-        display: none;
-    }   
-    * {
-        background: white !important;
-        color: black !important;
-    }
+/* Estilos para el tema claro */
+:root.light-theme body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
 }
+
+:root.light-theme main {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+:root.light-theme main::before {
+    background: linear-gradient(180deg, rgba(0, 57, 143, 0.05) 0%, transparent 100%) !important;
+}
+
+:root.light-theme main h1 {
+    color: var(--primary-color) !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 4px 15px rgba(0, 57, 143, 0.1) !important;
+}
+
+:root.light-theme .descripcion {
+    color: var(--text-light) !important;
+}
+
+:root.light-theme .bienvenida {
+    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+:root.light-theme .bienvenida .descripcion {
+    color: var(--text-light) !important;
+}
+
+:root.light-theme section.compromisos {
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%) !important;
+}
+
+:root.light-theme .compromisos h1 {
+    color: var(--primary-color) !important;
+    text-shadow: none !important;
+}
+
+:root.light-theme .carta {
+    background: linear-gradient(135deg, var(--white) 0%, #f8fafc 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+:root.light-theme .carta h3 {
+    color: var(--primary-color) !important;
+    text-shadow: none !important;
+}
+
+:root.light-theme .carta p {
+    color: var(--text-dark) !important;
+}
+
+:root.light-theme .servicios-principales {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+:root.light-theme .citas-promocion {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+:root.light-theme ::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+}
+
+:root.light-theme ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+}
+
+/* ...existing code... */
