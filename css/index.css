@@ -146,8 +146,8 @@ main h1::after {
 }
 
 .carousel-indicators li.active {
-    background-color: #ff9800;
-    border-color: #ff9800;
+    background-color: var(--secondary-lightest);
+    border-color: var(--secondary-lightest);
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
 }
@@ -184,7 +184,7 @@ main h1::after {
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     background: rgba(255, 152, 0, 0.9);
-    border-color: #ff9800;
+    border-color: var(--secondary-lightest);
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 0 20px rgba(255, 152, 0, 0.4);
 }
@@ -572,12 +572,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-lightest) 100%);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, var(--primary-lightest) 0%, var(--primary-color) 100%);
 }
 
 /* Focus states mejorados */

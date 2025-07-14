@@ -4,16 +4,9 @@
 
 /* Variables CSS para el navbar */
 :root {
-    --primary-color: #0D47A1;
-    --primary-dark: #1565C0;
-    --primary-light: #1976D2;
-    --primary-lighter: #1E88E5;
-    --primary-lightest: #2196F3;
-    --secondary-color: #E65100;
-    --secondary-dark: #EF6C00;
-    --secondary-light: #F57C00;
-    --secondary-lighter: #FB8C00;
-    --secondary-lightest: #FF9800;
+    --primary-color: #00398f;
+    --secondary-color: #ff9800;
+    --accent-color: #667eea;
     --white: #ffffff;
     --shadow-medium: rgba(0, 0, 0, 0.12);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -21,7 +14,7 @@
 
 /* Estilos del header */
 header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
     color: var(--white);
     padding: 1rem 1.6rem;
     display: flex;
