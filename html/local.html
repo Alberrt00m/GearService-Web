@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../css/navbar.css" />
     <!-- CSS específico de locales -->
     <link rel="stylesheet" href="../css/local.css">
-    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
@@ -29,101 +28,205 @@
     </header>
 
     <main>
-        <h1>aqui va el formulario con local</h1>
+        <section class="locales-hero">
+            <div class="hero-content">
+                <h1>
+                    <i class="bi bi-geo-alt-fill"></i>
+                    Nuestros Locales
+                </h1>
+                <p>Encuentra el taller Gear Service más cercano a ti con la mejor ubicación y fácil acceso</p>
+            </div>
+        </section>
 
-            <a href="servicios.html"><i class="bi bi-tools"></i> Servicios</a>
-            <a href="citas.html"><i class="bi bi-calendar-check-fill"></i> Citas</a>
-            <a href="local.html" class="activo"><i class="bi bi-geo-alt-fill"></i> Locales</a>
-        </nav>
-    </header>
-    <main>
         <section class="local-section">
-            <div class="location-header">
-                <i class="bi bi-geo-alt-fill"></i>
-                <h2>Nuestra Ubicación</h2>
-                <p>Encuentra nuestro taller especializado con la mejor ubicación y fácil acceso para tu comodidad.</p>
-            </div>
-
             <!-- Información de contacto -->
-            <div class="contact-info">
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
+            <div class="container">
+                <div class="contact-info">
+                    <h2>
+                        <i class="bi bi-building"></i>
+                        Información de Contacto
+                    </h2>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <h3>Dirección Principal</h3>
+                            <p>Av. Independencia 123<br>Chimbote, Áncash<br>Perú</p>
+                            <a href="https://maps.google.com/?q=Av.+Independencia+123+Chimbote" target="_blank" class="contact-link">
+                                <i class="bi bi-map"></i> Ver en Maps
+                            </a>
                         </div>
-                        <h3>Dirección</h3>
-                        <p>Av. Independencia 123<br>Chimbote, Áncash<br>Perú</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="bi bi-telephone-fill"></i>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <h3>Teléfonos</h3>
+                            <p>
+                                <strong>Principal:</strong> +51 971 825 787<br>
+                                <strong>Oficina:</strong> +51 43 123 4567<br>
+                                <strong>Emergencias:</strong> +51 900 000 000
+                            </p>
+                            <a href="tel:+51971825787" class="contact-link">
+                                <i class="bi bi-telephone"></i> Llamar ahora
+                            </a>
                         </div>
-                        <h3>Teléfono</h3>
-                        <p>+51 971 825 787<br>+51 43 123 4567</p>
-                        <a href="tel:+51943123456" class="contact-link">Llamar ahora</a>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="bi bi-clock-fill"></i>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <h3>Horarios de Atención</h3>
+                            <div class="schedule">
+                                <div class="schedule-item">
+                                    <span class="day">Lunes - Viernes:</span>
+                                    <span class="time">8:00 AM - 6:00 PM</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="day">Sábados:</span>
+                                    <span class="time">8:00 AM - 2:00 PM</span>
+                                </div>
+                                <div class="schedule-item closed">
+                                    <span class="day">Domingos:</span>
+                                    <span class="time">Cerrado</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Horarios</h3>
-                        <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 8:00 AM - 2:00 PM<br>Domingos: Cerrado</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="bi bi-envelope-fill"></i>
+                        
+                        <div class="info-card">
+                            <div class="card-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <h3>Correos Electrónicos</h3>
+                            <p>
+                                <strong>General:</strong> info@gearservice.com<br>
+                                <strong>Citas:</strong> citas@gearservice.com<br>
+                                <strong>Soporte:</strong> soporte@gearservice.com
+                            </p>
+                            <a href="mailto:info@gearservice.com" class="contact-link">
+                                <i class="bi bi-envelope"></i> Enviar email
+                            </a>
                         </div>
-                        <h3>Email</h3>
-                        <p>info@gearservice.com<br>contacto@gearservice.com</p>
-                        <a href="mailto:info@gearservice.com" class="contact-link">Enviar email</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- MAPA MEJORADO -->
-            <div class="map-section">
-                <h3>Encuéntranos en el Mapa</h3>
-                <p>Ubicación estratégica con fácil acceso y estacionamiento disponible</p>
-                <div class="map-container">
-                    <iframe width="100%" height="450" style="border:0; border-radius: 15px;" loading="lazy" allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Gear Service"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dgjWTuHiKgR0Y0&q=-9.078944,-78.579083&zoom=15">
-                    </iframe>
-                    <div class="map-overlay">
-                        <a href="https://maps.google.com/?q=-9.078944,-78.579083" target="_blank" class="directions-btn">
-                            <i class="bi bi-compass"></i>
-                            Obtener Direcciones
-                        </a>
+                <!-- MAPA MEJORADO -->
+                <div class="map-section">
+                    <h2>
+                        <i class="bi bi-map"></i>
+                        Encuéntranos en el Mapa
+                    </h2>
+                    <p>Ubicación estratégica con fácil acceso y estacionamiento disponible</p>
+                    <div class="map-container">
+                        <iframe 
+                            width="100%" 
+                            height="450" 
+                            style="border:0; border-radius: 15px;" 
+                            loading="lazy" 
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade" 
+                            title="Ubicación de Gear Service"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.816234829456!2d-78.58190308561624!3d-9.078943993524537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3e7e5d1234567%3A0x1234567890abcdef!2sAv.+Independencia+123%2C+Chimbote%2C+Per%C3%BA!5e0!3m2!1sen!2spe!4v1234567890123!5m2!1sen!2spe">
+                        </iframe>
+                        <div class="map-overlay">
+                            <a href="https://maps.google.com/?q=-9.078944,-78.579083" target="_blank" class="directions-btn">
+                                <i class="bi bi-compass"></i>
+                                Obtener Direcciones
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Servicios adicionales -->
-            <div class="location-features">
-                <h3>¿Por qué elegirnos?</h3>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <i class="bi bi-car-front-fill"></i>
-                        <h4>Estacionamiento Gratuito</h4>
-                        <p>Amplio espacio para estacionar tu vehículo de forma segura</p>
+                <!-- Servicios adicionales -->
+                <div class="location-features">
+                    <h2>
+                        <i class="bi bi-star-fill"></i>
+                        ¿Por qué elegirnos?
+                    </h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-car-front-fill"></i>
+                            </div>
+                            <h4>Estacionamiento Gratuito</h4>
+                            <p>Amplio espacio para estacionar tu vehículo de forma segura mientras realizamos el servicio</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-wifi"></i>
+                            </div>
+                            <h4>WiFi Gratuito</h4>
+                            <p>Mantente conectado mientras esperas. Internet de alta velocidad disponible para todos nuestros clientes</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-cup-hot-fill"></i>
+                            </div>
+                            <h4>Área de Espera Cómoda</h4>
+                            <p>Sala de espera climatizada con café, refrescos gratuitos y entretenimiento</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4>Zona Segura</h4>
+                            <p>Ubicación en zona comercial segura con vigilancia 24/7 y cámaras de seguridad</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <h4>Equipos Modernos</h4>
+                            <p>Tecnología de última generación para diagnósticos precisos y reparaciones eficientes</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <h4>Personal Calificado</h4>
+                            <p>Mecánicos certificados con años de experiencia y capacitación continua</p>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <i class="bi bi-wifi"></i>
-                        <h4>WiFi Gratuito</h4>
-                        <p>Mantente conectado mientras esperas el servicio de tu auto</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="bi bi-cup-hot-fill"></i>
-                        <h4>Área de Espera</h4>
-                        <p>Cómoda sala de espera con café y refrescos gratuitos</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="bi bi-shield-check"></i>
-                        <h4>Zona Segura</h4>
-                        <p>Ubicación en zona comercial segura con vigilancia 24/7</p>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="additional-info">
+                    <h2>
+                        <i class="bi bi-info-circle"></i>
+                        Información Adicional
+                    </h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="bi bi-credit-card"></i>
+                            <h4>Métodos de Pago</h4>
+                            <ul>
+                                <li>Efectivo</li>
+                                <li>Tarjetas de crédito/débito</li>
+                                <li>Yape / Plin</li>
+                                <li>Transferencias bancarias</li>
+                            </ul>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-award"></i>
+                            <h4>Garantías</h4>
+                            <ul>
+                                <li>30 días en reparaciones</li>
+                                <li>6 meses en repuestos</li>
+                                <li>Servicio post-venta</li>
+                                <li>Seguimiento personalizado</li>
+                            </ul>
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-truck"></i>
+                            <h4>Servicios Especiales</h4>
+                            <ul>
+                                <li>Grúa 24 horas</li>
+                                <li>Mecánica a domicilio</li>
+                                <li>Revisión pre-viaje</li>
+                                <li>Mantenimiento preventivo</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
