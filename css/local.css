@@ -120,15 +120,15 @@ body {
 
 .info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     margin-top: 50px;
 }
 
 .info-card {
     background: var(--white);
     border-radius: var(--border-radius);
-    padding: 40px 30px;
+    padding: 25px 20px;
     text-align: center;
     box-shadow: var(--shadow-light);
     transition: var(--transition);
@@ -171,7 +171,7 @@ body {
 }
 
 .card-icon i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--white);
 }
 
@@ -181,16 +181,17 @@ body {
 
 .info-card h3 {
     font-family: 'Oswald', 'Arial Narrow', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .info-card p {
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .info-card p strong {
@@ -205,8 +206,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
 }
 
 .schedule-item:last-child {
@@ -230,13 +232,14 @@ body {
 .contact-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
+    gap: 6px;
+    padding: 8px 16px;
     background: var(--gradient-primary);
     color: var(--white);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 500;
+    font-size: 0.85rem;
     transition: var(--transition);
     font-size: 0.9rem;
 }
@@ -499,6 +502,13 @@ body {
 }
 
 /* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-content h1 {
         font-size: 3rem;
@@ -511,7 +521,11 @@ body {
         font-size: 2.2rem;
     }
     
-    .info-cards,
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
     .features-grid,
     .info-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -559,7 +573,7 @@ body {
     .info-card,
     .feature-item,
     .info-item {
-        padding: 30px 25px;
+        padding: 25px 20px;
     }
     
     .card-icon,
