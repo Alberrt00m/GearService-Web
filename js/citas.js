@@ -312,7 +312,7 @@ function hideLoadingState(button) {
     button.style.opacity = '1';
 }
 
-//se borro la simulacion de envio
+//se borro la simulacion
 
 // Mostrar mensaje de éxito
 function showSuccessMessage() {
