@@ -49,7 +49,7 @@
                             <div>
                                 <h4>Horarios de Atención</h4>
                                 <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>
-                                   Sábados: 8:00 AM - 2:00 PM</p>
+                                    Sábados: 8:00 AM - 2:00 PM</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -57,7 +57,7 @@
                             <div>
                                 <h4>Contacto Directo</h4>
                                 <p>📞 (01) 234-5678<br>
-                                   📧 citas@gearservice.com</p>
+                                    📧 citas@gearservice.com</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -65,7 +65,7 @@
                             <div>
                                 <h4>Ubicación</h4>
                                 <p>Av. Principal 123<br>
-                                   Lima, Perú</p>
+                                    Lima, Perú</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -84,6 +84,7 @@
                         </div>
 
                         <form class="appointment-form" id="citaForm">
+                            <!-- DATOS PERSONALES -->
                             <div class="form-section">
                                 <h4><i class="bi bi-person"></i> Datos Personales</h4>
                                 <div class="form-group">
@@ -91,8 +92,8 @@
                                         <i class="bi bi-person-fill"></i>
                                         Nombre Completo *
                                     </label>
-                                    <input type="text" id="fullName" name="fullName" required 
-                                           placeholder="Ej: Juan Carlos Pérez" />
+                                    <input type="text" id="fullName" name="fullName" required
+                                        placeholder="Ej: Juan Carlos Pérez" />
                                 </div>
 
                                 <div class="form-row">
@@ -101,20 +102,29 @@
                                             <i class="bi bi-envelope"></i>
                                             Correo Electrónico *
                                         </label>
-                                        <input type="email" id="email" name="email" required 
-                                               placeholder="tu@email.com" />
+                                        <input type="email" id="email" name="email" required
+                                            placeholder="tu@email.com" />
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">
                                             <i class="bi bi-telephone"></i>
                                             Teléfono *
                                         </label>
-                                        <input type="tel" id="phone" name="phone" required 
-                                               placeholder="999 123 456" />
+                                        <input type="tel" id="phone" name="phone" required placeholder="999 123 456" />
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">
+                                        <i class="bi bi-geo"></i>
+                                        Dirección *
+                                    </label>
+                                    <input type="text" id="address" name="address" required
+                                        placeholder="Ej: Av. Siempre Viva 123" />
                                 </div>
                             </div>
 
+                            <!-- DATOS DEL VEHÍCULO -->
                             <div class="form-section">
                                 <h4><i class="bi bi-car-front"></i> Datos del Vehículo</h4>
                                 <div class="form-row">
@@ -123,32 +133,24 @@
                                             <i class="bi bi-car-fill"></i>
                                             Marca *
                                         </label>
-                                        <select id="vehicleBrand" name="vehicleBrand" required>
-                                            <option value="">Selecciona la marca</option>
-                                            <option value="toyota">Toyota</option>
-                                            <option value="honda">Honda</option>
-                                            <option value="nissan">Nissan</option>
-                                            <option value="hyundai">Hyundai</option>
-                                            <option value="chevrolet">Chevrolet</option>
-                                            <option value="kia">Kia</option>
-                                            <option value="otro">Otro</option>
-                                        </select>
+                                        <input type="text" id="vehicleBrand" name="vehicleBrand" required
+                                            placeholder="Ej: Toyota" />
                                     </div>
                                     <div class="form-group">
                                         <label for="vehicleModel">
                                             <i class="bi bi-gear"></i>
                                             Modelo *
                                         </label>
-                                        <input type="text" id="vehicleModel" name="vehicleModel" required 
-                                               placeholder="Ej: Corolla" />
+                                        <input type="text" id="vehicleModel" name="vehicleModel" required
+                                            placeholder="Ej: Corolla" />
                                     </div>
                                     <div class="form-group">
                                         <label for="vehicleYear">
                                             <i class="bi bi-calendar3"></i>
                                             Año *
                                         </label>
-                                        <input type="number" id="vehicleYear" name="vehicleYear" required 
-                                               min="1990" max="2025" placeholder="2020" />
+                                        <input type="number" id="vehicleYear" name="vehicleYear" required min="1990"
+                                            max="2099" placeholder="2025" />
                                     </div>
                                 </div>
 
@@ -158,50 +160,34 @@
                                             <i class="bi bi-credit-card-2-front"></i>
                                             Placa del Vehículo *
                                         </label>
-                                        <input type="text" id="licensePlate" name="licensePlate" required 
-                                               placeholder="ABC-123" pattern="[A-Z]{3}-[0-9]{3}" />
+                                        <input type="text" id="licensePlate" name="licensePlate" required
+                                            placeholder="ABC-123" pattern="[A-Z]{3}-[0-9]{3}" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="mileage">
-                                            <i class="bi bi-speedometer2"></i>
-                                            Kilometraje
+                                        <label for="vehicleColor">
+                                            <i class="bi bi-palette"></i>
+                                            Color *
                                         </label>
-                                        <input type="number" id="mileage" name="mileage" 
-                                               placeholder="150000" />
+                                        <input type="text" id="vehicleColor" name="vehicleColor" required
+                                            placeholder="Ej: Rojo" />
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- SERVICIO SOLICITADO -->
                             <div class="form-section">
                                 <h4><i class="bi bi-tools"></i> Servicio Solicitado</h4>
                                 <div class="form-group">
-                                    <label for="serviceType">
-                                        <i class="bi bi-wrench"></i>
-                                        Tipo de Servicio *
-                                    </label>
-                                    <select id="serviceType" name="serviceType" required>
-                                        <option value="">Selecciona el servicio</option>
-                                        <option value="cambio-aceite">Cambio de Aceite</option>
-                                        <option value="revision-frenos">Revisión de Frenos</option>
-                                        <option value="alineacion">Alineación y Balanceo</option>
-                                        <option value="diagnostico">Diagnóstico General</option>
-                                        <option value="aire-acondicionado">Aire Acondicionado</option>
-                                        <option value="revision-bateria">Revisión de Batería</option>
-                                        <option value="mantenimiento-general">Mantenimiento General</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="problemDescription">
                                         <i class="bi bi-card-text"></i>
-                                        Descripción del Problema o Servicio
+                                        Descripción del Problema o Servicio *
                                     </label>
                                     <textarea id="problemDescription" name="problemDescription" rows="4"
-                                        placeholder="Describe detalladamente el problema que presenta tu vehículo o el servicio que necesitas..."></textarea>
+                                        placeholder="Describe detalladamente..." required></textarea>
                                 </div>
                             </div>
 
+                            <!-- FECHA Y HORA -->
                             <div class="form-section">
                                 <h4><i class="bi bi-calendar2-week"></i> Fecha y Hora Preferida</h4>
                                 <div class="form-row">
@@ -234,30 +220,32 @@
                                 </div>
                             </div>
 
+                            <!-- BOTÓN -->
                             <div class="form-actions">
                                 <button type="submit" class="submit-button">
-                                    <i class="bi bi-send"></i>
-                                    Enviar Solicitud de Cita
+                                    <i class="bi bi-send"></i> Enviar Solicitud de Cita
                                 </button>
                                 <p class="form-note">
-                                    <i class="bi bi-info-circle"></i>
-                                    Nos pondremos en contacto contigo en las próximas 2 horas para confirmar tu cita
+                                    <i class="bi bi-info-circle"></i> Nos pondremos en contacto contigo en las próximas
+                                    2 horas para confirmar tu cita
                                 </p>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-<footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2025 Gear Service Online. Todos los derechos reservados.</p>
             <p class="footer-sub">Confianza y calidad para tu vehículo.</p>
         </div>
     </footer>
-<script src="../js/citas.js"></script>
-<script src="../js/theme-toggle.js"></script>
+    <script src="../js/citas.js"></script>
+    <script src="../js/theme-toggle.js"></script>
 </body>
+
 </html>

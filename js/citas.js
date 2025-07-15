@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initializeCitasForm();
     setMinDate();
     addFormAnimations();
@@ -10,7 +10,7 @@ function initializeCitasForm() {
 
     // Event listeners
     form.addEventListener('submit', handleFormSubmit);
-    
+
     // Validación en tiempo real
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
@@ -47,49 +47,82 @@ function setMinDate() {
 }
 
 // Manejo del envío del formulario
+// Manejo del envío del formulario
 async function handleFormSubmit(event) {
     event.preventDefault();
-    
+
     const form = event.target;
     const submitButton = form.querySelector('.submit-button');
-    
-    // Mostrar estado de carga
+
     showLoadingState(submitButton);
-    
+
     try {
-        // Validar todos los campos
         if (!validateForm(form)) {
             hideLoadingState(submitButton);
             showNotification('Por favor, completa todos los campos requeridos correctamente.', 'error');
             return;
         }
 
-        // Simular envío (aquí irían las llamadas a la API)
-        await simulateFormSubmission();
-        
-        // Mostrar éxito
-        showSuccessMessage();
-        resetForm(form);
-        
+        // Obtener datos y enviarlos al servidor
+        const formData = new FormData(form);
+        const fullName = formData.get('fullName').trim().split(' ');
+
+        const data = {
+            nombre: fullName[0] || '',
+            apellido: fullName.slice(1).join(' ') || '',
+            telefono: formData.get('phone').replace(/\s/g, ''),
+            correo: formData.get('email'),
+            direccion: formData.get('address'),
+            placa: formData.get('licensePlate'),
+            marca: formData.get('vehicleBrand'),
+            modelo: formData.get('vehicleModel'),
+            año: formData.get('vehicleYear'),
+            color: formData.get('vehicleColor'),
+            fecha: formData.get('preferredDate'),
+            descripcion: formData.get('problemDescription')
+        };
+
+        console.log('Enviando:', data);
+
+        // Llamada real a tu API
+        const response = await fetch('http://localhost:3000/crear-cita', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            showSuccessMessage();
+            resetForm(form);
+        } else {
+            console.error(result);
+            showNotification('Error del servidor: ' + (result.error || 'Error desconocido'), 'error');
+        }
+
     } catch (error) {
         console.error('Error al enviar formulario:', error);
-        showNotification('Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.', 'error');
+        showNotification('Hubo un error de red. Intenta nuevamente.', 'error');
     } finally {
         hideLoadingState(submitButton);
     }
 }
 
+
 // Validar formulario completo
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
-    
+
     requiredFields.forEach(field => {
         if (!validateField(field)) {
             isValid = false;
         }
     });
-    
+
     return isValid;
 }
 
@@ -98,16 +131,16 @@ function validateField(field) {
     const value = field.value.trim();
     const fieldType = field.type;
     const fieldName = field.name;
-    
+
     // Limpiar errores previos
     clearFieldError(field);
-    
+
     // Verificar si está vacío (para campos requeridos)
     if (field.hasAttribute('required') && !value) {
         showFieldError(field, 'Este campo es obligatorio');
         return false;
     }
-    
+
     // Validaciones específicas por tipo
     switch (fieldType) {
         case 'email':
@@ -128,12 +161,12 @@ function validateField(field) {
 function validateEmail(field) {
     const email = field.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     if (email && !emailRegex.test(email)) {
         showFieldError(field, 'Por favor, ingresa un email válido');
         return false;
     }
-    
+
     if (email) {
         showFieldSuccess(field);
     }
@@ -144,12 +177,12 @@ function validateEmail(field) {
 function validatePhone(field) {
     const phone = field.value.trim();
     const phoneRegex = /^[0-9]{9}$/;
-    
+
     if (phone && !phoneRegex.test(phone.replace(/\s/g, ''))) {
         showFieldError(field, 'El teléfono debe tener 9 dígitos');
         return false;
     }
-    
+
     if (phone) {
         showFieldSuccess(field);
     }
@@ -161,7 +194,7 @@ function validateNumber(field) {
     const value = field.value.trim();
     const min = field.getAttribute('min');
     const max = field.getAttribute('max');
-    
+
     if (value) {
         const num = parseInt(value);
         if (min && num < parseInt(min)) {
@@ -181,12 +214,12 @@ function validateNumber(field) {
 function validateLicensePlate(field) {
     const plate = field.value.trim().toUpperCase();
     const plateRegex = /^[A-Z]{3}-[0-9]{3}$/;
-    
+
     if (plate && !plateRegex.test(plate)) {
         showFieldError(field, 'Formato: ABC-123');
         return false;
     }
-    
+
     if (plate) {
         showFieldSuccess(field);
     }
@@ -197,28 +230,28 @@ function validateLicensePlate(field) {
 function formatPhoneNumber(event) {
     let value = event.target.value.replace(/\D/g, '');
     if (value.length > 9) value = value.slice(0, 9);
-    
+
     // Formatear como 999 123 456
     if (value.length > 6) {
         value = value.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3');
     } else if (value.length > 3) {
         value = value.replace(/(\d{3})(\d{3})/, '$1 $2');
     }
-    
+
     event.target.value = value;
 }
 
 // Formatear placa
 function formatLicensePlate(event) {
     let value = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    
+
     if (value.length > 6) value = value.slice(0, 6);
-    
+
     // Formatear como ABC-123
     if (value.length > 3) {
         value = value.replace(/([A-Z]{3})([0-9]{1,3})/, '$1-$2');
     }
-    
+
     event.target.value = value;
 }
 
@@ -226,17 +259,17 @@ function formatLicensePlate(event) {
 function showFieldError(field, message) {
     field.classList.add('error');
     field.classList.remove('success');
-    
+
     // Remover mensaje anterior
     const existingError = field.parentNode.querySelector('.field-message');
     if (existingError) existingError.remove();
-    
+
     // Crear mensaje de error
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-message error-message';
     errorDiv.innerHTML = `<i class="bi bi-exclamation-circle"></i> ${message}`;
     field.parentNode.appendChild(errorDiv);
-    
+
     // Animación de shake
     field.style.animation = 'shake 0.5s ease-in-out';
     setTimeout(() => field.style.animation = '', 500);
@@ -246,11 +279,11 @@ function showFieldError(field, message) {
 function showFieldSuccess(field) {
     field.classList.add('success');
     field.classList.remove('error');
-    
+
     // Remover mensaje anterior
     const existingMessage = field.parentNode.querySelector('.field-message');
     if (existingMessage) existingMessage.remove();
-    
+
     // Crear mensaje de éxito
     const successDiv = document.createElement('div');
     successDiv.className = 'field-message success-message';
@@ -279,21 +312,16 @@ function hideLoadingState(button) {
     button.style.opacity = '1';
 }
 
-// Simular envío del formulario
-function simulateFormSubmission() {
-    return new Promise((resolve) => {
-        setTimeout(resolve, 2000); // Simular delay de red
-    });
-}
+//se borro la simulacion de envio
 
 // Mostrar mensaje de éxito
 function showSuccessMessage() {
     const successModal = createSuccessModal();
     document.body.appendChild(successModal);
-    
+
     // Mostrar modal con animación
     setTimeout(() => successModal.classList.add('show'), 100);
-    
+
     // Auto cerrar después de 5 segundos
     setTimeout(() => {
         closeModal(successModal);
@@ -326,7 +354,7 @@ function createSuccessModal() {
         </div>
         <div class="modal-backdrop" onclick="closeModal(this.parentNode)"></div>
     `;
-    
+
     return modal;
 }
 
@@ -343,7 +371,7 @@ function closeModal(modal) {
 // Resetear formulario
 function resetForm(form) {
     form.reset();
-    
+
     // Limpiar todas las validaciones
     const fields = form.querySelectorAll('input, select, textarea');
     fields.forEach(field => {
@@ -363,12 +391,12 @@ function showNotification(message, type = 'info') {
             <i class="bi bi-x"></i>
         </button>
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Mostrar con animación
     setTimeout(() => notification.classList.add('show'), 100);
-    
+
     // Auto remover después de 5 segundos
     setTimeout(() => {
         if (notification.parentNode) {
@@ -388,7 +416,7 @@ function addFormAnimations() {
             }
         });
     });
-    
+
     sections.forEach(section => observer.observe(section));
 }
 
